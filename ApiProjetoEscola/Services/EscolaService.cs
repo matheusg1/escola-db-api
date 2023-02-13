@@ -8,7 +8,7 @@ namespace ApiProjetoEscola.Services
 {
     public class EscolaService : IEscolaService
     {
-        IGenericRepository<Escola> _repository;
+        private IGenericRepository<Escola> _repository;
 
         public EscolaService(IGenericRepository<Escola> repository)
         {

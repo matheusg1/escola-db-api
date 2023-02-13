@@ -2,6 +2,7 @@ using ApiProjetoEscola.Model.Context;
 using ApiProjetoEscola.Repository;
 using ApiProjetoEscola.Repository.IGenericRepository;
 using ApiProjetoEscola.Services;
+using ApiProjetoEscola.Services.IServices;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -53,12 +54,10 @@ namespace ApiProjetoEscola
             });
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddScoped<EscolaService, EscolaService>();
-            services.AddScoped<EscolaRepository, EscolaRepository>();
+            services.AddScoped<IEscolaService, EscolaService>();
+            services.AddScoped<ITurmaService, TurmaService>();
         }
 
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -79,6 +78,7 @@ namespace ApiProjetoEscola
                 endpoints.MapControllers();
             });
         }
+
         private void MigrateDatabase(string connection)
         {
             try

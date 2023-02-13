@@ -6,11 +6,11 @@ namespace ApiProjetoEscola.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class EscolaController : ControllerBase
+    public class TurmaController : ControllerBase
     {
-        public IEscolaService _service;
+        public ITurmaService _service;
 
-        public EscolaController(IEscolaService service)
+        public TurmaController(ITurmaService service)
         {
             _service = service;
         }
