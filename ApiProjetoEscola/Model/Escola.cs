@@ -3,7 +3,7 @@
 namespace ApiProjetoEscola.Model
 {
     [Table("Escola")]
-    public class Escola
+    public class Escola : BaseEntity
     {
         [Column("Id")]
         public int id { get; set; }

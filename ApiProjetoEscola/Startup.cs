@@ -1,5 +1,6 @@
 using ApiProjetoEscola.Model.Context;
 using ApiProjetoEscola.Repository;
+using ApiProjetoEscola.Repository.IGenericRepository;
 using ApiProjetoEscola.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,7 +39,7 @@ namespace ApiProjetoEscola
         {
             var connection = Configuration.GetConnectionString("EscolaDb");
 
-            services.AddDbContext<EscolaDbContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<ProjetoDbContext>(options => options.UseSqlServer(connection));
             services.AddControllers();
 
             if (Environment.IsDevelopment())
@@ -51,6 +52,7 @@ namespace ApiProjetoEscola
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiProjetoEscola", Version = "v1" });
             });
 
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<EscolaService, EscolaService>();
             services.AddScoped<EscolaRepository, EscolaRepository>();
         }

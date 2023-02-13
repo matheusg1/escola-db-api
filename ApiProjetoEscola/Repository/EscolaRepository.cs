@@ -7,9 +7,9 @@ namespace ApiProjetoEscola.Repository
 {
     public class EscolaRepository
     {
-        private EscolaDbContext _context;
+        private ProjetoDbContext _context;
 
-        public EscolaRepository(EscolaDbContext context)
+        public EscolaRepository(ProjetoDbContext context)
         {
             _context = context;
         }

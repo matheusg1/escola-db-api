@@ -2,15 +2,15 @@
 
 namespace ApiProjetoEscola.Model.Context
 {
-    public class EscolaDbContext : DbContext
+    public class ProjetoDbContext : DbContext
     {
         public DbSet<Escola> Escolas { get; set; }
 
-        public EscolaDbContext()
+        public ProjetoDbContext()
         {
         }
 
-        public EscolaDbContext(DbContextOptions options) : base(options)
+        public ProjetoDbContext(DbContextOptions options) : base(options)
         {
         }
     }
