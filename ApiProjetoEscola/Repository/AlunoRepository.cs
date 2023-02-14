@@ -1,22 +1,21 @@
 ﻿using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Model.Context;
 using ApiProjetoEscola.Repository.IRepository;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace ApiProjetoEscola.Repository
 {
-    public class EscolaRepository : IEscolaRepository
+    public class AlunoRepository : IAlunoRepository
     {
         private ProjetoDbContext _context;
 
-        public EscolaRepository(ProjetoDbContext context)
+        public AlunoRepository(ProjetoDbContext context)
         {
             _context = context;
         }
 
-        public Escola Create(Escola escola)
+        public Aluno Create(Aluno aluno)
         {
             throw new System.NotImplementedException();
         }
@@ -26,17 +25,17 @@ namespace ApiProjetoEscola.Repository
             throw new System.NotImplementedException();
         }
 
-        public List<Escola> FindAll()
+        public List<Aluno> FindAll()
         {
-            return _context.Escolas.Include(e => e.turmas).ToList();
+            return _context.Alunos.ToList();
         }
 
-        public Escola FindByID(int id)
+        public Aluno FindByID(int id)
         {
             throw new System.NotImplementedException();
         }
 
-        public Escola Update(Escola escola)
+        public Aluno Update(Aluno escola)
         {
             throw new System.NotImplementedException();
         }

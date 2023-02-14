@@ -6,6 +6,7 @@ namespace ApiProjetoEscola.Model.Context
     {
         public DbSet<Escola> Escolas { get; set; }
         public DbSet<Turma> Turmas { get; set; }
+        public DbSet<Aluno> Alunos { get; set; }
 
         public ProjetoDbContext()
         {

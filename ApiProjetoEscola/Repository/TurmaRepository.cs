@@ -7,16 +7,16 @@ using System.Linq;
 
 namespace ApiProjetoEscola.Repository
 {
-    public class EscolaRepository : IEscolaRepository
+    public class TurmaRepository : ITurmaRepository
     {
         private ProjetoDbContext _context;
 
-        public EscolaRepository(ProjetoDbContext context)
+        public TurmaRepository(ProjetoDbContext context)
         {
             _context = context;
         }
 
-        public Escola Create(Escola escola)
+        public Turma Create(Turma turma)
         {
             throw new System.NotImplementedException();
         }
@@ -26,17 +26,17 @@ namespace ApiProjetoEscola.Repository
             throw new System.NotImplementedException();
         }
 
-        public List<Escola> FindAll()
+        public List<Turma> FindAll()
         {
-            return _context.Escolas.Include(e => e.turmas).ToList();
+            return _context.Turmas.ToList();
         }
 
-        public Escola FindByID(int id)
+        public Turma FindByID(int id)
         {
             throw new System.NotImplementedException();
         }
 
-        public Escola Update(Escola escola)
+        public Turma Update(Turma turma)
         {
             throw new System.NotImplementedException();
         }

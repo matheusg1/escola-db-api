@@ -1,6 +1,6 @@
 using ApiProjetoEscola.Model.Context;
 using ApiProjetoEscola.Repository;
-using ApiProjetoEscola.Repository.IGenericRepository;
+using ApiProjetoEscola.Repository.IRepository;
 using ApiProjetoEscola.Services;
 using ApiProjetoEscola.Services.IServices;
 using Microsoft.AspNetCore.Builder;
@@ -53,9 +53,14 @@ namespace ApiProjetoEscola
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiProjetoEscola", Version = "v1" });
             });
 
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            //services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IEscolaService, EscolaService>();
             services.AddScoped<ITurmaService, TurmaService>();
+            services.AddScoped<IAlunoService, AlunoService>();
+            
+            services.AddScoped<IEscolaRepository, EscolaRepository>();
+            services.AddScoped<ITurmaRepository, TurmaRepository>();
+            services.AddScoped<IAlunoRepository, AlunoRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

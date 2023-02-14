@@ -1,6 +1,6 @@
 ﻿using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Repository;
-using ApiProjetoEscola.Repository.IGenericRepository;
+using ApiProjetoEscola.Repository.IRepository;
 using ApiProjetoEscola.Services.IServices;
 using System.Collections.Generic;
 
@@ -8,9 +8,9 @@ namespace ApiProjetoEscola.Services
 {
     public class EscolaService : IEscolaService
     {
-        private IGenericRepository<Escola> _repository;
+        private IEscolaRepository _repository;
 
-        public EscolaService(IGenericRepository<Escola> repository)
+        public EscolaService(IEscolaRepository repository)
         {
             _repository = repository;
         }

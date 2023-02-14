@@ -8,18 +8,18 @@ using ApiProjetoEscola.Repository.IRepository;
 
 namespace ApiProjetoEscola.Services
 {
-    public class TurmaService : ITurmaService
+    public class AlunoService : IAlunoService
     {
-        private ITurmaRepository _repository;
+        private IAlunoRepository _repository;
 
-        public TurmaService(ITurmaRepository repository)
+        public AlunoService(IAlunoRepository repository)
         {
             _repository = repository;
         }
 
-        public Turma Create(Turma turma)
+        public Aluno Create(Aluno aluno)
         {
-            return _repository.Create(turma);
+            return _repository.Create(aluno);
         }
 
         public void Delete(int id)
@@ -27,19 +27,19 @@ namespace ApiProjetoEscola.Services
             _repository.Delete(id);
         }
 
-        public List<Turma> FindAll()
+        public List<Aluno> FindAll()
         {
             return _repository.FindAll();
         }
 
-        public Turma FindByID(int id)
+        public Aluno FindByID(int id)
         {
             return _repository.FindByID(id);            
         }
 
-        public Turma Update(Turma turma)
+        public Aluno Update(Aluno aluno)
         {
-            return _repository.Update(turma);            
+            return _repository.Update(aluno);            
         }
     }
 }
