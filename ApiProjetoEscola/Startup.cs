@@ -56,10 +56,12 @@ namespace ApiProjetoEscola
             //services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IEscolaService, EscolaService>();
             services.AddScoped<ITurmaService, TurmaService>();
+            services.AddScoped<IMateriaService, MateriaService>();
             services.AddScoped<IAlunoService, AlunoService>();
             
             services.AddScoped<IEscolaRepository, EscolaRepository>();
             services.AddScoped<ITurmaRepository, TurmaRepository>();
+            services.AddScoped<IMateriaRepository, MateriaRepository>();
             services.AddScoped<IAlunoRepository, AlunoRepository>();
         }
 
