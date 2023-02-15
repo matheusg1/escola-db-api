@@ -5,21 +5,27 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System;
 using ApiProjetoEscola.Repository.IRepository;
+using ApiProjetoEscola.DTO;
+using ApiProjetoEscola.DTO.Converter;
 
 namespace ApiProjetoEscola.Services
 {
     public class AlunoService : IAlunoService
     {
         private IAlunoRepository _repository;
+        private AlunoConverter _converter;
 
         public AlunoService(IAlunoRepository repository)
         {
             _repository = repository;
+            _converter = new AlunoConverter();
         }
 
-        public Aluno Create(Aluno aluno)
+        public AlunoDTO Create(AlunoDTO aluno)
         {
-            return _repository.Create(aluno);
+            var alunoEntity = _converter.Parse(aluno);
+            alunoEntity = _repository.Create(alunoEntity);
+            return _converter.Parse(alunoEntity);
         }
 
         public void Delete(int id)
@@ -27,19 +33,23 @@ namespace ApiProjetoEscola.Services
             _repository.Delete(id);
         }
 
-        public List<Aluno> FindAll()
+        public List<AlunoDTO> FindAll()
         {
-            return _repository.FindAll();
+            var result = _repository.FindAll();
+            return _converter.Parse(result);
         }
 
-        public Aluno FindByID(int id)
+        public AlunoDTO FindByID(int id)
         {
-            return _repository.FindByID(id);            
+            var result = _repository.FindByID(id);
+            return _converter.Parse(result);
         }
 
-        public Aluno Update(Aluno aluno)
+        public AlunoDTO Update(AlunoDTO aluno)
         {
-            return _repository.Update(aluno);            
+            var alunoEntity = _converter.Parse(aluno);
+            alunoEntity = _repository.Update(alunoEntity);
+            return _converter.Parse(alunoEntity);
         }
     }
 }

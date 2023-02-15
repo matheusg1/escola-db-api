@@ -8,14 +8,14 @@ namespace ApiProjetoEscola.Model
     public class Aluno
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
         [Column("Matricula")]
-        public Guid matricula { get; set; }
+        public Guid Matricula { get; set; }
         [Column("Nome_Completo")]
-        public string nomeCompleto { get; set; }
+        public string NomeCompleto { get; set; }
         [Column("CPF")]
-        public string cpf { get; set; }
+        public string Cpf { get; set; }
         [Column("Data_Nascimento")]
-        public DateTime dataNascimento { get; set; }
+        public DateTime DataNascimento { get; set; }
     }
 }

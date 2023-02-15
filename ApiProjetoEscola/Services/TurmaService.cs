@@ -5,21 +5,27 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System;
 using ApiProjetoEscola.Repository.IRepository;
+using ApiProjetoEscola.DTO;
+using ApiProjetoEscola.DTO.Converter;
 
 namespace ApiProjetoEscola.Services
 {
     public class TurmaService : ITurmaService
     {
         private ITurmaRepository _repository;
+        private TurmaConverter _converter;
 
         public TurmaService(ITurmaRepository repository)
         {
             _repository = repository;
+            _converter = new TurmaConverter();
         }
 
-        public Turma Create(Turma turma)
+        public TurmaDTO Create(TurmaDTO turma)
         {
-            return _repository.Create(turma);
+            var turmaEntity = _converter.Parse(turma);
+            turmaEntity = _repository.Create(turmaEntity);
+            return _converter.Parse(turmaEntity);
         }
 
         public void Delete(int id)
@@ -27,19 +33,23 @@ namespace ApiProjetoEscola.Services
             _repository.Delete(id);
         }
 
-        public List<Turma> FindAll()
+        public List<TurmaDTO> FindAll()
         {
-            return _repository.FindAll();
+            var result = _repository.FindAll();
+            return _converter.Parse(result);
         }
 
-        public Turma FindByID(int id)
+        public TurmaDTO FindByID(int id)
         {
-            return _repository.FindByID(id);            
+            var result = _repository.FindByID(id);
+            return _converter.Parse(result);            
         }
 
-        public Turma Update(Turma turma)
+        public TurmaDTO Update(TurmaDTO turma)
         {
-            return _repository.Update(turma);            
+            var turmaEntity = _converter.Parse(turma);
+            turmaEntity = _repository.Update(turmaEntity);
+            return _converter.Parse(turmaEntity);            
         }
     }
 }

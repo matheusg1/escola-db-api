@@ -37,7 +37,7 @@ namespace ApiProjetoEscola
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = Configuration.GetConnectionString("EscolaDbCasa");
+            var connection = Configuration.GetConnectionString("EscolaDb");
 
             services.AddDbContext<ProjetoDbContext>(options => options.UseSqlServer(connection));
             services.AddControllers();

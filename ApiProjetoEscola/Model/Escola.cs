@@ -7,12 +7,12 @@ namespace ApiProjetoEscola.Model
     public class Escola
     {
         [Column("Id")]
-        public int id { get; set; }
+        public int Id { get; set; }
         [Column("Nome")]
-        public string nome { get; set; }
+        public string Nome { get; set; }
         [Column("Endereco")]
-        public string endereco { get; set; }
+        public string Endereco { get; set; }
         [ForeignKey("Id")]
-        public IEnumerable<Turma> turmas { get; set; }
+        public IEnumerable<Turma> Turmas { get; set; }
     }
 }

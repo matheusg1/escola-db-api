@@ -8,10 +8,10 @@ namespace ApiProjetoEscola.Model
     public class Materia
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
         [Column("Nome")]
-        public string nome { get; set; }
+        public string Nome { get; set; }
         [Column("Professor")]
-        public string professor { get; set; }
+        public string Professor { get; set; }
     }
 }

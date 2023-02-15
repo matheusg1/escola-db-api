@@ -1,6 +1,7 @@
 ﻿using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Model.Context;
 using ApiProjetoEscola.Repository.IRepository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,12 +18,34 @@ namespace ApiProjetoEscola.Repository
 
         public Aluno Create(Aluno aluno)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                _context.Add(aluno);
+                _context.SaveChanges();
+                return aluno;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public void Delete(int id)
         {
-            throw new System.NotImplementedException();
+            var result = _context.Alunos.FirstOrDefault(a => a.Id == id);
+
+            if (result != null)
+            {
+                try
+                {
+                    _context.Remove(result);
+                    _context.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
+            }
         }
 
         public List<Aluno> FindAll()
@@ -32,12 +55,25 @@ namespace ApiProjetoEscola.Repository
 
         public Aluno FindByID(int id)
         {
-            throw new System.NotImplementedException();
+            return _context.Alunos.FirstOrDefault(a => a.Id == id);
         }
 
-        public Aluno Update(Aluno escola)
+        public Aluno Update(Aluno aluno)
         {
-            throw new System.NotImplementedException();
+            var result = FindByID(aluno.Id);
+
+            if (result == null) return null;
+
+            try
+            {
+                _context.Entry(result).CurrentValues.SetValues(aluno);
+                _context.SaveChanges();
+                return aluno;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }

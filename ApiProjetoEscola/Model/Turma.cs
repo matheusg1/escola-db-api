@@ -8,12 +8,12 @@ namespace ApiProjetoEscola.Model
     public class Turma
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
         [Column("Codigo")]
-        public string codigo { get; set; }
+        public string Codigo { get; set; }
         [ForeignKey("Id")]
-        public IEnumerable<Materia> materias { get; set; }
+        public IEnumerable<Materia> Materias { get; set; }
         [ForeignKey("Id")]
-        public IEnumerable<Aluno> alunos { get; set; }
+        public IEnumerable<Aluno> Alunos { get; set; }
     }
 }

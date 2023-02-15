@@ -2,6 +2,7 @@
 using ApiProjetoEscola.Model.Context;
 using ApiProjetoEscola.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,27 +19,65 @@ namespace ApiProjetoEscola.Repository
 
         public Turma Create(Turma turma)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                _context.Add(turma);
+                _context.SaveChanges();
+                return turma;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public void Delete(int id)
         {
-            throw new System.NotImplementedException();
+            var result = _context.Turmas.FirstOrDefault(t => t.Id == id);
+
+            if (result != null)
+            {
+                try
+                {
+                    _context.Remove(result);
+                    _context.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
+            }
         }
 
         public List<Turma> FindAll()
         {
-            return _context.Turmas.ToList();
+            return _context.Turmas
+                .Include(t => t.Materias)
+                .Include(t => t.Alunos)
+                .ToList();
         }
 
         public Turma FindByID(int id)
         {
-            throw new System.NotImplementedException();
+            return _context.Turmas.FirstOrDefault(t => t.Id == id);
         }
 
         public Turma Update(Turma turma)
         {
-            throw new System.NotImplementedException();
+            var result = FindByID(turma.Id);
+
+            if (result == null) return null;
+
+            try
+            {
+                _context.Entry(result).CurrentValues.SetValues(turma);
+                _context.SaveChanges();
+                return turma;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }

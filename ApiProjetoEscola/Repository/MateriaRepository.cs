@@ -1,6 +1,7 @@
 ﻿using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Model.Context;
 using ApiProjetoEscola.Repository.IRepository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,12 +18,34 @@ namespace ApiProjetoEscola.Repository
 
         public Materia Create(Materia materia)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                _context.Add(materia);
+                _context.SaveChanges();
+                return materia;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public void Delete(int id)
         {
-            throw new System.NotImplementedException();
+            var result = _context.Materias.FirstOrDefault(m => m.Id == id);
+
+            if (result != null)
+            {
+                try
+                {
+                    _context.Remove(result);
+                    _context.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
+            }
         }
 
         public List<Materia> FindAll()
@@ -32,12 +55,25 @@ namespace ApiProjetoEscola.Repository
 
         public Materia FindByID(int id)
         {
-            throw new System.NotImplementedException();
+            return _context.Materias.FirstOrDefault(m => m.Id == id);
         }
 
         public Materia Update(Materia materia)
         {
-            throw new System.NotImplementedException();
+            var result = FindByID(materia.Id);
+
+            if (result == null) return null;
+
+            try
+            {
+                _context.Entry(result).CurrentValues.SetValues(materia);
+                _context.SaveChanges();
+                return materia;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }

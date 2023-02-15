@@ -1,14 +1,15 @@
-﻿using ApiProjetoEscola.Model;
+﻿using ApiProjetoEscola.DTO;
+using ApiProjetoEscola.Model;
 using System.Collections.Generic;
 
 namespace ApiProjetoEscola.Services.IServices
 {
     public interface IMateriaService
     {
-        Materia Create(Materia materia);
-        Materia FindByID(int id);
-        List<Materia> FindAll();
-        Materia Update(Materia materia);
+        MateriaDTO Create(MateriaDTO materia);
+        MateriaDTO FindByID(int id);
+        List<MateriaDTO> FindAll();
+        MateriaDTO Update(MateriaDTO materia);
         void Delete(int id);
     }
 }
