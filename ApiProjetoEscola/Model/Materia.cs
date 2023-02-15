@@ -13,7 +13,5 @@ namespace ApiProjetoEscola.Model
         public string nome { get; set; }
         [Column("Professor")]
         public string professor { get; set; }
-        [ForeignKey("Id")]
-        public List<Aluno> alunos { get; set; }
     }
 }

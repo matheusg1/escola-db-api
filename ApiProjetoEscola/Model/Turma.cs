@@ -12,6 +12,8 @@ namespace ApiProjetoEscola.Model
         [Column("Codigo")]
         public string codigo { get; set; }
         [ForeignKey("Id")]
-        public List<Materia> materias { get; set; }
+        public IEnumerable<Materia> materias { get; set; }
+        [ForeignKey("Id")]
+        public IEnumerable<Aluno> alunos { get; set; }
     }
 }
