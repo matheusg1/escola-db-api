@@ -35,10 +35,9 @@ namespace ApiProjetoEscola
                 .CreateLogger();
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = Configuration.GetConnectionString("EscolaDb");
+            var connection = Configuration.GetConnectionString("EscolaDbCasa");
 
             services.AddDbContext<ProjetoDbContext>(options => options.UseSqlServer(connection));
             services.AddControllers();
