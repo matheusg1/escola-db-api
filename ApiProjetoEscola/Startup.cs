@@ -38,8 +38,14 @@ namespace ApiProjetoEscola
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = Configuration.GetConnectionString("EscolaDb");
+            services.AddCors(options => options.AddDefaultPolicy(builder =>
+            {
+                builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            }));
 
+            var connection = Configuration.GetConnectionString("EscolaDb");
             services.AddDbContext<ProjetoDbContext>(options => options.UseSqlServer(connection));
             services.AddControllers();
 
@@ -85,6 +91,9 @@ namespace ApiProjetoEscola
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            //Depois de UseHttpsRedirection e UseRouting e antes de UseEndpoints
+            app.UseCors();
 
             app.UseAuthorization();
 
