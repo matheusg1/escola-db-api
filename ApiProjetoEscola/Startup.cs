@@ -20,6 +20,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace ApiProjetoEscola
 {
@@ -64,7 +65,18 @@ namespace ApiProjetoEscola
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiProjetoEscola", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo 
+                { 
+                    Title = "ApiProjetoEscola", 
+                    Version = "v1",
+                    Description = "Sistema para cadasto escolar",
+
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Matheus G.",
+                        Url = new Uri("https://github.com/matheusg1")
+                    }
+                });
             });
 
             //services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
