@@ -21,7 +21,6 @@ C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\ApiProjetoEscola\ApiPro
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\ApiProjetoEscola\ApiProjetoEscola\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\ApiProjetoEscola\ApiProjetoEscola\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\ApiProjetoEscola\ApiProjetoEscola\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\ApiProjetoEscola\ApiProjetoEscola\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\ApiProjetoEscola\ApiProjetoEscola\bin\Debug\net5.0\Serilog.dll
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\ApiProjetoEscola\ApiProjetoEscola\bin\Debug\net5.0\Serilog.AspNetCore.dll
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\ApiProjetoEscola\ApiProjetoEscola\bin\Debug\net5.0\Serilog.Extensions.Hosting.dll
@@ -136,3 +135,4 @@ C:\CSharp\Escola-db-api\ApiProjetoEscola\obj\Debug\net5.0\refint\ApiProjetoEscol
 C:\CSharp\Escola-db-api\ApiProjetoEscola\obj\Debug\net5.0\ApiProjetoEscola.pdb
 C:\CSharp\Escola-db-api\ApiProjetoEscola\obj\Debug\net5.0\ApiProjetoEscola.genruntimeconfig.cache
 C:\CSharp\Escola-db-api\ApiProjetoEscola\obj\Debug\net5.0\ref\ApiProjetoEscola.dll
+C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\ApiProjetoEscola\ApiProjetoEscola\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

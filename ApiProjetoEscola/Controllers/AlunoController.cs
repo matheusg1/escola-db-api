@@ -1,11 +1,13 @@
 ﻿using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Services.IServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace ApiProjetoEscola.Controllers
 {
     [ApiController]
+    [Authorize("Bearer")]
     [Route("[controller]")]
     public class AlunoController : ControllerBase
     {
