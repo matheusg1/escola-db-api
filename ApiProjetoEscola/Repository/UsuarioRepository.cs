@@ -26,6 +26,13 @@ namespace ApiProjetoEscola.Repository
                 .FirstOrDefault(u => u.NomeUsuario == usuario.NomeUsuario && u.Senha == pass.ToString());            
         }
 
+
+        public Usuario ValidateCredentials(string nomeUsuario)
+        {
+            return _context.Usuarios.FirstOrDefault(u => u.NomeUsuario == nomeUsuario);
+        }
+
+
         public Usuario RefreshUsuarioInfo(Usuario usuario)
         {
             if(!_context.Usuarios.Any(u => u.Id == usuario.Id))
@@ -53,6 +60,11 @@ namespace ApiProjetoEscola.Repository
             Byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
             return BitConverter.ToString(hashedBytes);
 
+            throw new NotImplementedException();
+        }
+
+        public bool RevokeToken(string nomeUsuario)
+        {
             throw new NotImplementedException();
         }
     }

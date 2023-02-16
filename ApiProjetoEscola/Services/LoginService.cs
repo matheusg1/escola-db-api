@@ -1,5 +1,6 @@
 ﻿using ApiProjetoEscola.Configurations;
 using ApiProjetoEscola.DTO;
+using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Repository.IRepository;
 using ApiProjetoEscola.Services.IServices;
 using ApiProjetoEscola.TokenServices.ITokenServices;
@@ -42,6 +43,40 @@ namespace ApiProjetoEscola.Services
             usuario.RefreshToken = refreshToken;
             usuario.RefreshTokenExpiryTime = DateTime.Now.AddDays(_configuration.DaysToExpiry);
             
+            _repository.RefreshUsuarioInfo(usuario);
+
+            DateTime createDate = DateTime.Now;
+            DateTime expirationDate = createDate.AddMinutes(_configuration.Minutes);
+
+            return new TokenDTO(
+                true,
+                createDate.ToString(DATE_FORMAT),
+                expirationDate.ToString(DATE_FORMAT),
+                accessToken,
+                refreshToken
+                );
+        }
+
+        public TokenDTO ValidateCredentials(TokenDTO token)
+        {
+            var accessToken = token.AccessToken;
+            var refreshToken = token.RefreshToken;
+
+            var principal = _tokenService.GetPrincipalFromExpiredToken(accessToken);
+            var nomeUsuario = principal.Identity.Name;
+
+            var usuario = _repository.ValidateCredentials(nomeUsuario);
+            
+            if (usuario == null || usuario.RefreshToken != refreshToken || usuario.RefreshTokenExpiryTime <= DateTime.Now)
+            {
+                return null;
+            }
+
+            accessToken = _tokenService.GenerateAccessToken(principal.Claims);
+            refreshToken = _tokenService.generateRefreshToken();
+
+            usuario.RefreshToken = refreshToken;
+
             _repository.RefreshUsuarioInfo(usuario);
 
             DateTime createDate = DateTime.Now;

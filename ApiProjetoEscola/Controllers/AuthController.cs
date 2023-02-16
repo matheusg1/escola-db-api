@@ -28,5 +28,18 @@ namespace ApiProjetoEscola.Controllers
             
             return Ok(token);
         }
+
+        [HttpPost]
+        [Route("Refresh")]
+        public IActionResult Refresh([FromBody] TokenDTO tokenDTO)
+        {
+            if (tokenDTO == null) return BadRequest("Invalid client request");
+
+            var token = _loginService.ValidateCredentials(tokenDTO);
+
+            if (token == null) return BadRequest("Invalid client request");
+
+            return Ok(token);
+        }
     }
 }
