@@ -42,7 +42,7 @@ namespace ApiProjetoEscola.Services
 
             usuario.RefreshToken = refreshToken;
             usuario.RefreshTokenExpiryTime = DateTime.Now.AddDays(_configuration.DaysToExpiry);
-            
+
             _repository.RefreshUsuarioInfo(usuario);
 
             DateTime createDate = DateTime.Now;
@@ -66,7 +66,7 @@ namespace ApiProjetoEscola.Services
             var nomeUsuario = principal.Identity.Name;
 
             var usuario = _repository.ValidateCredentials(nomeUsuario);
-            
+
             if (usuario == null || usuario.RefreshToken != refreshToken || usuario.RefreshTokenExpiryTime <= DateTime.Now)
             {
                 return null;
@@ -89,6 +89,11 @@ namespace ApiProjetoEscola.Services
                 accessToken,
                 refreshToken
                 );
+        }
+
+        public bool RevokeToken(string nomeUsuario)
+        {
+            return _repository.RevokeToken(nomeUsuario);
         }
     }
 }

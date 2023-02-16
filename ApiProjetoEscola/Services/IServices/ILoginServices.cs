@@ -6,5 +6,6 @@ namespace ApiProjetoEscola.Services.IServices
     {
         TokenDTO ValidateCredentials(UsuarioDTO usuario);
         TokenDTO ValidateCredentials(TokenDTO token);
+        bool RevokeToken(string nomeUsuario);
     }
 }

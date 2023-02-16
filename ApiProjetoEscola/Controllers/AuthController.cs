@@ -1,5 +1,6 @@
 ﻿using ApiProjetoEscola.DTO;
 using ApiProjetoEscola.Services.IServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -40,6 +41,19 @@ namespace ApiProjetoEscola.Controllers
             if (token == null) return BadRequest("Invalid client request");
 
             return Ok(token);
+        }
+
+        [HttpGet]
+        [Route("Revoke")]
+        [Authorize("Bearer")]
+        public IActionResult Revoke()
+        {
+            var nomeUsuario = User.Identity.Name;
+            var result = _loginService.RevokeToken(nomeUsuario);
+
+            if (!result) return BadRequest("Invalid client request");        
+
+            return NoContent();
         }
     }
 }

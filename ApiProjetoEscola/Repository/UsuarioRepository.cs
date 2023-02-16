@@ -65,7 +65,13 @@ namespace ApiProjetoEscola.Repository
 
         public bool RevokeToken(string nomeUsuario)
         {
-            throw new NotImplementedException();
+            var usuario = _context.Usuarios.SingleOrDefault(u => u.NomeUsuario == nomeUsuario);
+            if (usuario == null) return false;
+
+            usuario.RefreshToken = null;
+            _context.SaveChanges();
+            
+            return true;
         }
     }
 }
