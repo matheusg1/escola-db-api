@@ -1,5 +1,4 @@
-﻿using ApiProjetoEscola.DTO;
-using ApiProjetoEscola.Services;
+﻿using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -18,7 +17,7 @@ namespace ApiProjetoEscola.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType((200), Type = typeof(List<AlunoDTO>))]
+        [ProducesResponseType((200), Type = typeof(List<Aluno>))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -29,7 +28,7 @@ namespace ApiProjetoEscola.Controllers
 
         [HttpGet]
         [Route("FindByID")]
-        [ProducesResponseType((200), Type = typeof(AlunoDTO))]
+        [ProducesResponseType((200), Type = typeof(Aluno))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -40,10 +39,10 @@ namespace ApiProjetoEscola.Controllers
 
         [HttpPost]
         [Route("Create")]
-        [ProducesResponseType((200), Type = typeof(AlunoDTO))]
+        [ProducesResponseType((200), Type = typeof(Aluno))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Create([FromBody] AlunoDTO aluno)
+        public IActionResult Create([FromBody] Aluno aluno)
         {
             if (aluno == null) return BadRequest();
             return Ok(_service.Create(aluno));
@@ -51,10 +50,10 @@ namespace ApiProjetoEscola.Controllers
 
         [HttpPut]
         [Route("Update")]
-        [ProducesResponseType((200), Type = typeof(AlunoDTO))]
+        [ProducesResponseType((200), Type = typeof(Aluno))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Update([FromBody] AlunoDTO aluno)
+        public IActionResult Update([FromBody] Aluno aluno)
         {
             if (aluno == null) return BadRequest();
             return Ok(_service.Update(aluno));

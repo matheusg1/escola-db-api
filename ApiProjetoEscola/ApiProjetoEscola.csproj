@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DTO\**" />
+    <Content Remove="DTO\**" />
+    <EmbeddedResource Remove="DTO\**" />
+    <None Remove="DTO\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Repository\GenericRepository.cs" />
     <Compile Remove="Repository\IRepository\IGenericRepository.cs" />
   </ItemGroup>

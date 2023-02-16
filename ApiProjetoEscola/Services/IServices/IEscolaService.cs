@@ -1,15 +1,14 @@
-﻿using ApiProjetoEscola.DTO;
-using ApiProjetoEscola.Model;
+﻿using ApiProjetoEscola.Model;
 using System.Collections.Generic;
 
 namespace ApiProjetoEscola.Services.IServices
 {
     public interface IEscolaService
     {
-        EscolaDTO Create(EscolaDTO escola);
-        EscolaDTO FindByID(int id);
-        List<EscolaDTO> FindAll();
-        EscolaDTO Update(EscolaDTO escola);
+        Escola Create(Escola escola);
+        Escola FindByID(int id);
+        List<Escola> FindAll();
+        Escola Update(Escola escola);
         void Delete(int id);
     }
 }

@@ -1,5 +1,4 @@
-﻿using ApiProjetoEscola.DTO;
-using ApiProjetoEscola.Services;
+﻿using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -18,7 +17,7 @@ namespace ApiProjetoEscola.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType((200), Type = typeof(List<TurmaDTO>))]
+        [ProducesResponseType((200), Type = typeof(List<Turma>))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -30,7 +29,7 @@ namespace ApiProjetoEscola.Controllers
 
         [HttpGet]
         [Route("FindByID")]
-        [ProducesResponseType((200), Type = typeof(TurmaDTO))]
+        [ProducesResponseType((200), Type = typeof(Turma))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -41,10 +40,10 @@ namespace ApiProjetoEscola.Controllers
 
         [HttpPost]
         [Route("Create")]
-        [ProducesResponseType((200), Type = typeof(TurmaDTO))]
+        [ProducesResponseType((200), Type = typeof(Turma))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Create([FromBody] TurmaDTO turma)
+        public IActionResult Create([FromBody] Turma turma)
         {
             if (turma == null) return BadRequest();
 
@@ -53,10 +52,10 @@ namespace ApiProjetoEscola.Controllers
 
         [HttpPut]
         [Route("Update")]
-        [ProducesResponseType((200), Type = typeof(EscolaDTO))]
+        [ProducesResponseType((200), Type = typeof(Turma))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Update([FromBody] TurmaDTO turma)
+        public IActionResult Update([FromBody] Turma turma)
         {
             if (turma == null) return BadRequest();
             return Ok(_service.Update(turma));

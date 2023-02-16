@@ -1,10 +1,6 @@
-﻿using ApiProjetoEscola.DTO;
-using ApiProjetoEscola.DTO.Converter;
-using ApiProjetoEscola.Model;
-using ApiProjetoEscola.Repository;
+﻿using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Repository.IRepository;
 using ApiProjetoEscola.Services.IServices;
-using System;
 using System.Collections.Generic;
 
 namespace ApiProjetoEscola.Services
@@ -12,19 +8,14 @@ namespace ApiProjetoEscola.Services
     public class EscolaService : IEscolaService
     {
         private IEscolaRepository _repository;
-        private EscolaConverter _converter;
 
         public EscolaService(IEscolaRepository repository)
         {
             _repository = repository;
-            _converter = new EscolaConverter();
         }
-
-        public EscolaDTO Create(EscolaDTO escola)
+        public Escola Create(Escola escola)
         {
-            var escolaEntity = _converter.Parse(escola);
-            escolaEntity = _repository.Create(escolaEntity);
-            return _converter.Parse(escolaEntity);
+            return _repository.Create(escola);
         }
 
         public void Delete(int id)
@@ -32,23 +23,19 @@ namespace ApiProjetoEscola.Services
             _repository.Delete(id);
         }
 
-        public List<EscolaDTO> FindAll()
+        public List<Escola> FindAll()
         {
-            var list = _repository.FindAll();
-            return _converter.Parse(list);
+            return _repository.FindAll();
         }
 
-        public EscolaDTO FindByID(int id)
+        public Escola FindByID(int id)
         {
-            var result = _repository.FindByID(id);
-            return _converter.Parse(result);
+            return _repository.FindByID(id);
         }
 
-        public EscolaDTO Update(EscolaDTO escola)
+        public Escola Update(Escola escola)
         {
-            var escolaEntity = _converter.Parse(escola);
-            escolaEntity = _repository.Update(escolaEntity);
-            return _converter.Parse(escolaEntity);
+            return _repository.Update(escola);
         }
     }
 }

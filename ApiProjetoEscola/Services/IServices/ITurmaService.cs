@@ -1,15 +1,14 @@
-﻿using ApiProjetoEscola.DTO;
-using ApiProjetoEscola.Model;
+﻿using ApiProjetoEscola.Model;
 using System.Collections.Generic;
 
 namespace ApiProjetoEscola.Services.IServices
 {
     public interface ITurmaService
     {
-        TurmaDTO Create(TurmaDTO turma);
-        TurmaDTO FindByID(int id);
-        List<TurmaDTO> FindAll();
-        TurmaDTO Update(TurmaDTO turma);
+        Turma Create(Turma turma);
+        Turma FindByID(int id);
+        List<Turma> FindAll();
+        Turma Update(Turma turma);
         void Delete(int id);
     }
 }

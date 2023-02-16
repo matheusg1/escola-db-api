@@ -51,7 +51,8 @@ namespace ApiProjetoEscola.Repository
 
         public List<Escola> FindAll()
         {
-            return _context.Escolas.Include(e => e.Turmas)
+            return _context.Escolas
+                .Include(e => e.Turmas)
                 .ThenInclude(t => t.Materias)
                 .Include(e => e.Turmas)
                 .ThenInclude(t => t.Alunos)
@@ -60,7 +61,7 @@ namespace ApiProjetoEscola.Repository
 
         public Escola FindByID(int id)
         {
-            return _context.Escolas.FirstOrDefault(e => e.Id == id);
+            return _context.Escolas.FirstOrDefault(e => e.Id == id);                
         }
 
         public Escola Update(Escola escola)
