@@ -89,7 +89,6 @@ C:\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\Microsoft.IdentityMode
 C:\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\Serilog.dll
 C:\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\Serilog.AspNetCore.dll
 C:\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\Serilog.Extensions.Hosting.dll
@@ -136,3 +135,4 @@ C:\CSharp\Escola-db-api\ApiProjetoEscola\obj\Debug\net5.0\ApiProjetoEscola.pdb
 C:\CSharp\Escola-db-api\ApiProjetoEscola\obj\Debug\net5.0\ApiProjetoEscola.genruntimeconfig.cache
 C:\CSharp\Escola-db-api\ApiProjetoEscola\obj\Debug\net5.0\ref\ApiProjetoEscola.dll
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\ApiProjetoEscola\ApiProjetoEscola\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace ApiProjetoEscola.Controllers
 {
     [ApiController]
-    [Authorize("Bearer")]
+    //[Authorize("Bearer")]
     [Route("[controller]")]
     public class AlunoController : ControllerBase
     {
@@ -37,6 +37,20 @@ namespace ApiProjetoEscola.Controllers
         public IActionResult FindByID([FromQuery] int id)
         {
             return Ok(_service.FindByID(id));
+        }
+
+        [HttpGet]
+        [Route("FindByName")]
+        [ProducesResponseType((200), Type = typeof(List<Aluno>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        public IActionResult FindByName([FromQuery] string nome, [FromQuery] string sobrenome)
+        {
+            var aluno = _service.FindByName(nome, sobrenome);
+            if (aluno == null) return NotFound();
+
+            return Ok(aluno);
         }
 
         [HttpPost]

@@ -11,8 +11,10 @@ namespace ApiProjetoEscola.Model
         public int Id { get; set; }
         [Column("Matricula")]
         public Guid Matricula { get; set; }
-        [Column("Nome_Completo")]
-        public string NomeCompleto { get; set; }
+        [Column("Nome")]
+        public string Nome { get; set; }
+        [Column("Sobrenome")]
+        public string Sobrenome { get; set; }
         [Column("CPF")]
         public string Cpf { get; set; }
         [Column("Data_Nascimento")]

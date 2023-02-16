@@ -58,6 +58,23 @@ namespace ApiProjetoEscola.Repository
             return _context.Alunos.FirstOrDefault(a => a.Id == id);
         }
 
+        public List<Aluno> FindByName(string nome, string sobrenome)
+        {
+            if (!string.IsNullOrWhiteSpace(nome) && !string.IsNullOrWhiteSpace(sobrenome))
+            {
+                return _context.Alunos.Where(a => a.Nome.Contains(nome) && a.Sobrenome == sobrenome).ToList();
+            }
+            else if (!string.IsNullOrWhiteSpace(nome) && string.IsNullOrWhiteSpace(sobrenome))
+            {
+                return _context.Alunos.Where(a => a.Nome.Contains(nome)).ToList();
+            }
+            else if (string.IsNullOrWhiteSpace(nome) && !string.IsNullOrWhiteSpace(sobrenome))
+            {
+                return _context.Alunos.Where(a => a.Sobrenome.Contains(sobrenome)).ToList();
+            }
+            return null;
+        }
+
         public Aluno Update(Aluno aluno)
         {
             var result = FindByID(aluno.Id);

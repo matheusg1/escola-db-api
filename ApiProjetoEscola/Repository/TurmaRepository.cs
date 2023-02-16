@@ -51,10 +51,7 @@ namespace ApiProjetoEscola.Repository
 
         public List<Turma> FindAll()
         {
-            return _context.Turmas
-                .Include(t => t.Materias)
-                .Include(t => t.Alunos)
-                .ToList();
+            return _context.Turmas.ToList();
         }
 
         public Turma FindByID(int id)

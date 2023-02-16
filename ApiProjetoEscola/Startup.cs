@@ -87,7 +87,7 @@ namespace ApiProjetoEscola
                 .AllowAnyHeader();
             }));
 
-            var connection = Configuration.GetConnectionString("EscolaDb");
+            var connection = Configuration.GetConnectionString("EscolaDbCasa");
             services.AddDbContext<ProjetoDbContext>(options => options.UseSqlServer(connection));
             services.AddControllers();
 

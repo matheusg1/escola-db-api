@@ -38,6 +38,11 @@ namespace ApiProjetoEscola.Services
             return _repository.FindByID(id);
         }
 
+        public List<Aluno> FindByName(string nome, string sobrenome)
+        {
+            return _repository.FindByName(nome, sobrenome);
+        }
+
         public Aluno Update(Aluno aluno)
         {
             return _repository.Update(aluno);

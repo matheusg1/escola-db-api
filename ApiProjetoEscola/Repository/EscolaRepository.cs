@@ -51,12 +51,7 @@ namespace ApiProjetoEscola.Repository
 
         public List<Escola> FindAll()
         {
-            return _context.Escolas
-                .Include(e => e.Turmas)
-                .ThenInclude(t => t.Materias)
-                .Include(e => e.Turmas)
-                .ThenInclude(t => t.Alunos)
-                .ToList();
+            return _context.Escolas.ToList();
         }
 
         public Escola FindByID(int id)
