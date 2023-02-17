@@ -1,4 +1,5 @@
 ﻿using ApiProjetoEscola.DTO;
+using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Services.IServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -32,8 +33,14 @@ namespace ApiProjetoEscola.Controllers
 
         [HttpPost]
         [Route("Refresh")]
-        public IActionResult Refresh([FromBody] TokenDTO tokenDTO)
+        public IActionResult Refresh([FromBody] RefreshTokenDTO RefreshTokenDTO)
         {
+            var tokenDTO = new TokenDTO
+            {
+                AccessToken = RefreshTokenDTO.accessToken,
+                RefreshToken = RefreshTokenDTO.refreshToken                
+            };
+
             if (tokenDTO == null) return BadRequest("Invalid client request");
 
             var token = _loginService.ValidateCredentials(tokenDTO);
@@ -54,6 +61,18 @@ namespace ApiProjetoEscola.Controllers
             if (!result) return BadRequest("Invalid client request");        
 
             return NoContent();
+        }
+
+        [HttpPost]
+        [Route("CreateUsuario")]
+        public IActionResult CreateUsuario([FromBody] UsuarioDTO usuario)
+        {
+            var result = _loginService.CreateUsuario(usuario);
+            if(result == null)
+            {
+                return null;
+            }
+            return Ok(result);
         }
     }
 }

@@ -4,6 +4,7 @@ using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Repository.IRepository;
 using ApiProjetoEscola.Services.IServices;
 using ApiProjetoEscola.TokenServices.ITokenServices;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.JsonWebTokens;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,31 @@ namespace ApiProjetoEscola.Services
             _configuration = configuration;
             _repository = repository;
             _tokenService = tokenService;
+        }
+
+        public TokenDTO CreateUsuario(UsuarioDTO usuarioDto)
+        {
+            var usuario = _repository.CreateUsuario(usuarioDto);
+
+            if (usuario == null)
+            {
+                return null;
+
+            }
+
+            usuario.RefreshToken = _tokenService.generateRefreshToken();
+            usuario.RefreshTokenExpiryTime = DateTime.Now.AddDays(_configuration.DaysToExpiry).AddMinutes(_configuration.Minutes);
+            
+            try
+            {
+                _repository.Add(usuario);
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
+            return ValidateCredentials(usuarioDto);
         }
 
         public TokenDTO ValidateCredentials(UsuarioDTO usuarioCredentials)
@@ -94,6 +120,35 @@ namespace ApiProjetoEscola.Services
         public bool RevokeToken(string nomeUsuario)
         {
             return _repository.RevokeToken(nomeUsuario);
+        }
+
+        public TokenDTO blabla(Usuario usuario)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
+                new Claim(JwtRegisteredClaimNames.UniqueName, usuario.NomeUsuario)
+
+            };
+
+            var accessToken = _tokenService.GenerateAccessToken(claims);
+            var refreshToken = _tokenService.generateRefreshToken();
+
+            usuario.RefreshToken = refreshToken;
+            usuario.RefreshTokenExpiryTime = DateTime.Now.AddDays(_configuration.DaysToExpiry);
+
+            _repository.RefreshUsuarioInfo(usuario);
+
+            DateTime createDate = DateTime.Now;
+            DateTime expirationDate = createDate.AddMinutes(_configuration.Minutes);
+
+            return new TokenDTO(
+                true,
+                createDate.ToString(DATE_FORMAT),
+                expirationDate.ToString(DATE_FORMAT),
+                accessToken,
+                refreshToken
+                );
         }
     }
 }

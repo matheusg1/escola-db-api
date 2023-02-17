@@ -1,7 +1,10 @@
-﻿using ApiProjetoEscola.DTO;
+﻿using ApiProjetoEscola.Configurations;
+using ApiProjetoEscola.DTO;
 using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Model.Context;
 using ApiProjetoEscola.Repository.IRepository;
+using ApiProjetoEscola.TokenServices.ITokenServices;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Data;
 using System.Linq;
@@ -19,6 +22,31 @@ namespace ApiProjetoEscola.Repository
             _context = context;
         }
 
+        public Usuario CreateUsuario(UsuarioDTO usuarioDto)
+        {
+            var usuario = _context.Usuarios.FirstOrDefault(u => u.NomeUsuario == usuarioDto.NomeUsuario);
+            
+            if (usuario != null)
+            {
+                return null;
+            }
+
+            var pass = ComputeHash(usuarioDto.Senha, new SHA256CryptoServiceProvider()).ToString();
+
+            var novoUsuario = new Usuario
+            {
+                NomeUsuario = usuarioDto.NomeUsuario,
+                Senha = pass,
+            };
+
+            return novoUsuario;
+        }
+        public void Add(Usuario usuario)
+        {
+            _context.Usuarios.Add(usuario);
+            _context.SaveChanges();
+        }
+
         public Usuario ValidateCredentials(UsuarioDTO usuario)
         {
             var pass = ComputeHash(usuario.Senha, new SHA256CryptoServiceProvider());
@@ -26,12 +54,10 @@ namespace ApiProjetoEscola.Repository
                 .FirstOrDefault(u => u.NomeUsuario == usuario.NomeUsuario && u.Senha == pass.ToString());            
         }
 
-
         public Usuario ValidateCredentials(string nomeUsuario)
         {
             return _context.Usuarios.FirstOrDefault(u => u.NomeUsuario == nomeUsuario);
         }
-
 
         public Usuario RefreshUsuarioInfo(Usuario usuario)
         {
@@ -59,8 +85,6 @@ namespace ApiProjetoEscola.Repository
             Byte[] inputBytes = Encoding.UTF8.GetBytes(input);
             Byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
             return BitConverter.ToString(hashedBytes);
-
-            throw new NotImplementedException();
         }
 
         public bool RevokeToken(string nomeUsuario)

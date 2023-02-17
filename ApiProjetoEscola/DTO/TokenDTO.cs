@@ -16,5 +16,8 @@
             AccessToken = accessToken;
             RefreshToken = refreshToken;
         }
+        public TokenDTO()
+        {
+        }
     }
 }
