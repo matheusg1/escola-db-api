@@ -7,7 +7,7 @@ namespace ApiProjetoEscola.TokenServices.ITokenServices
     public interface ITokenService
     {
         string GenerateAccessToken(IEnumerable<Claim> claims);
-        string generateRefreshToken();
+        string GenerateRefreshToken();
         ClaimsPrincipal GetPrincipalFromExpiredToken(string token);
     }
 }

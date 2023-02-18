@@ -67,6 +67,7 @@ namespace ApiProjetoEscola
                         ValidateAudience = true,
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
+                        ClockSkew = TimeSpan.Zero,
                         ValidIssuer = tokenConfigurations.Issuer,
                         ValidAudience = tokenConfigurations.Audience,
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenConfigurations.Secret))
@@ -87,7 +88,7 @@ namespace ApiProjetoEscola
                 .AllowAnyHeader();
             }));
 
-            var connection = Configuration.GetConnectionString("EscolaDb");
+            var connection = Configuration.GetConnectionString("EscolaDbCasa");
             services.AddDbContext<ProjetoDbContext>(options => options.UseSqlServer(connection));
             services.AddControllers();
 

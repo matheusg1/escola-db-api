@@ -36,7 +36,7 @@ namespace ApiProjetoEscola.Services
 
             }
 
-            usuario.RefreshToken = _tokenService.generateRefreshToken();
+            usuario.RefreshToken = _tokenService.GenerateRefreshToken();
             usuario.RefreshTokenExpiryTime = DateTime.Now.AddDays(_configuration.DaysToExpiry).AddMinutes(_configuration.Minutes);
             
             try
@@ -64,7 +64,7 @@ namespace ApiProjetoEscola.Services
             };
 
             var accessToken = _tokenService.GenerateAccessToken(claims);
-            var refreshToken = _tokenService.generateRefreshToken();
+            var refreshToken = _tokenService.GenerateRefreshToken();
 
             usuario.RefreshToken = refreshToken;
             usuario.RefreshTokenExpiryTime = DateTime.Now.AddDays(_configuration.DaysToExpiry);
@@ -99,7 +99,7 @@ namespace ApiProjetoEscola.Services
             }
 
             accessToken = _tokenService.GenerateAccessToken(principal.Claims);
-            refreshToken = _tokenService.generateRefreshToken();
+            refreshToken = _tokenService.GenerateRefreshToken();
 
             usuario.RefreshToken = refreshToken;
 
@@ -120,35 +120,6 @@ namespace ApiProjetoEscola.Services
         public bool RevokeToken(string nomeUsuario)
         {
             return _repository.RevokeToken(nomeUsuario);
-        }
-
-        public TokenDTO blabla(Usuario usuario)
-        {
-            var claims = new List<Claim>
-            {
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
-                new Claim(JwtRegisteredClaimNames.UniqueName, usuario.NomeUsuario)
-
-            };
-
-            var accessToken = _tokenService.GenerateAccessToken(claims);
-            var refreshToken = _tokenService.generateRefreshToken();
-
-            usuario.RefreshToken = refreshToken;
-            usuario.RefreshTokenExpiryTime = DateTime.Now.AddDays(_configuration.DaysToExpiry);
-
-            _repository.RefreshUsuarioInfo(usuario);
-
-            DateTime createDate = DateTime.Now;
-            DateTime expirationDate = createDate.AddMinutes(_configuration.Minutes);
-
-            return new TokenDTO(
-                true,
-                createDate.ToString(DATE_FORMAT),
-                expirationDate.ToString(DATE_FORMAT),
-                accessToken,
-                refreshToken
-                );
         }
     }
 }

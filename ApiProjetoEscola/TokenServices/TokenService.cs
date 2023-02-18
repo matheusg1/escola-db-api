@@ -36,7 +36,7 @@ namespace ApiProjetoEscola.TokenServices
             return tokenString;
         }
 
-        public string generateRefreshToken()
+        public string GenerateRefreshToken()
         {
             var randomNumber = new byte[32];
             using (var rng = RandomNumberGenerator.Create())
