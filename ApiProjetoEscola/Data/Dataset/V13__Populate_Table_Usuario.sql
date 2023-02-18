@@ -1,2 +1,2 @@
-INSERT INTO dbo.Usuario ([Nome_Usuario], [Senha], [Nome_Completo], [refresh_token], [refresh_token_expiry_time]) VALUES
-	('matheus', '24-0B-E5-18-FA-BD-27-24-DD-B6-F0-4E-EB-1D-A5-96-74-48-D7-E8-31-C0-8C-8F-A8-22-80-9F-74-C7-20-A9', 'Matheus Gomes', 'F3UV/scxdp134LBEo0Dg6OX0c2lgIgAYSpJ05gSQg/w=', '2020-11-16 12:14:08')
+INSERT INTO dbo.Usuario ([Nome_Usuario], [Senha], [Nome_Completo]) VALUES
+	('matheus', '24-0B-E5-18-FA-BD-27-24-DD-B6-F0-4E-EB-1D-A5-96-74-48-D7-E8-31-C0-8C-8F-A8-22-80-9F-74-C7-20-A9', 'Matheus Gomes')

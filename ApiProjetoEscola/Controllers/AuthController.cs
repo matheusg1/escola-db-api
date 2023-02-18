@@ -30,7 +30,7 @@ namespace ApiProjetoEscola.Controllers
             
             return Ok(token);
         }
-
+        /*
         [HttpPost]
         [Route("Refresh")]
         public IActionResult Refresh([FromBody] RefreshTokenDTO RefreshTokenDTO)
@@ -62,7 +62,7 @@ namespace ApiProjetoEscola.Controllers
 
             return NoContent();
         }
-
+        */
         [HttpPost]
         [Route("CreateUsuario")]
         public IActionResult CreateUsuario([FromBody] UsuarioDTO usuario)

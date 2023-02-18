@@ -9,7 +9,7 @@ namespace ApiProjetoEscola.Repository.IRepository
         public Usuario CreateUsuario(UsuarioDTO usuarioDto);
         Usuario ValidateCredentials(UsuarioDTO usuario);
         Usuario ValidateCredentials(string nomeUsuario);
-        bool RevokeToken(string nomeUsuario);
         Usuario RefreshUsuarioInfo(Usuario usuario);
+        //bool RevokeToken(string nomeUsuario);
     }
 }

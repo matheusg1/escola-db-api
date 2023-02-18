@@ -36,9 +36,6 @@ namespace ApiProjetoEscola.Services
 
             }
 
-            usuario.RefreshToken = _tokenService.GenerateRefreshToken();
-            usuario.RefreshTokenExpiryTime = DateTime.Now.AddDays(_configuration.DaysToExpiry).AddMinutes(_configuration.Minutes);
-            
             try
             {
                 _repository.Add(usuario);
@@ -66,9 +63,6 @@ namespace ApiProjetoEscola.Services
             var accessToken = _tokenService.GenerateAccessToken(claims);
             var refreshToken = _tokenService.GenerateRefreshToken();
 
-            usuario.RefreshToken = refreshToken;
-            usuario.RefreshTokenExpiryTime = DateTime.Now.AddDays(_configuration.DaysToExpiry);
-
             _repository.RefreshUsuarioInfo(usuario);
 
             DateTime createDate = DateTime.Now;
@@ -78,30 +72,25 @@ namespace ApiProjetoEscola.Services
                 true,
                 createDate.ToString(DATE_FORMAT),
                 expirationDate.ToString(DATE_FORMAT),
-                accessToken,
-                refreshToken
+                accessToken
                 );
         }
 
         public TokenDTO ValidateCredentials(TokenDTO token)
         {
             var accessToken = token.AccessToken;
-            var refreshToken = token.RefreshToken;
 
             var principal = _tokenService.GetPrincipalFromExpiredToken(accessToken);
             var nomeUsuario = principal.Identity.Name;
 
             var usuario = _repository.ValidateCredentials(nomeUsuario);
 
-            if (usuario == null || usuario.RefreshToken != refreshToken || usuario.RefreshTokenExpiryTime <= DateTime.Now)
+            if (usuario == null)
             {
                 return null;
             }
 
             accessToken = _tokenService.GenerateAccessToken(principal.Claims);
-            refreshToken = _tokenService.GenerateRefreshToken();
-
-            usuario.RefreshToken = refreshToken;
 
             _repository.RefreshUsuarioInfo(usuario);
 
@@ -112,14 +101,14 @@ namespace ApiProjetoEscola.Services
                 true,
                 createDate.ToString(DATE_FORMAT),
                 expirationDate.ToString(DATE_FORMAT),
-                accessToken,
-                refreshToken
+                accessToken
                 );
         }
-
+        /*
         public bool RevokeToken(string nomeUsuario)
         {
             return _repository.RevokeToken(nomeUsuario);
         }
+        */
     }
 }
