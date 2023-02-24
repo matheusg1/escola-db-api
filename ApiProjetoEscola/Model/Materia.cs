@@ -13,5 +13,7 @@ namespace ApiProjetoEscola.Model
         public string Nome { get; set; }
         [Column("Professor")]
         public string Professor { get; set; }
+        [Column("Turma")]
+        public int TurmaFK { get; set; }
     }
 }

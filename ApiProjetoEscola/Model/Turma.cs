@@ -15,5 +15,7 @@ namespace ApiProjetoEscola.Model
         public IEnumerable<Materia> Materias { get; set; }
         [ForeignKey("Id")]
         public IEnumerable<Aluno> Alunos { get; set; }
+        [Column("Escola")]
+        public int EscolaFK { get; set; }
     }
 }

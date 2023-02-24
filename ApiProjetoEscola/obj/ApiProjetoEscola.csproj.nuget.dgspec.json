@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\CSharp\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj": {}
+    "C:\\Users\\Matheus\\Desktop\\temporario escola\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj": {}
   },
   "projects": {
-    "C:\\CSharp\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj": {
+    "C:\\Users\\Matheus\\Desktop\\temporario escola\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CSharp\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
+        "projectUniqueName": "C:\\Users\\Matheus\\Desktop\\temporario escola\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
         "projectName": "ApiProjetoEscola",
-        "projectPath": "C:\\CSharp\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
+        "projectPath": "C:\\Users\\Matheus\\Desktop\\temporario escola\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
         "packagesPath": "C:\\Users\\Matheus\\.nuget\\packages\\",
-        "outputPath": "C:\\CSharp\\Escola-db-api\\ApiProjetoEscola\\obj\\",
+        "outputPath": "C:\\Users\\Matheus\\Desktop\\temporario escola\\Escola-db-api\\ApiProjetoEscola\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

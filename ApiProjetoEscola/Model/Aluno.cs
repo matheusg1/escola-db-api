@@ -19,5 +19,7 @@ namespace ApiProjetoEscola.Model
         public string Cpf { get; set; }
         [Column("Data_Nascimento")]
         public DateTime DataNascimento { get; set; }
+        [Column("Turma")]
+        public int TurmaFK{ get; set; }
     }
 }

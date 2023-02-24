@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace ApiProjetoEscola.Controllers
 {
     [ApiController]
-    [Authorize("Bearer")]
+    //[Authorize("Bearer")]
     [Route("[controller]")]
     public class AlunoController : ControllerBase
     {
