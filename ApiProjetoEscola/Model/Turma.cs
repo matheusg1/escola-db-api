@@ -4,19 +4,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ApiProjetoEscola.Model
 {
-    [Table("Turma")]
+    [Table("Turmas")]
     public class Turma
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int Id { get; set; }
-        [Column("Codigo")]
-        public string Codigo { get; set; }
-        [ForeignKey("Id")]
+        public int TurmaId { get; set; }
+        public string Codigo { get; set; }        
+        public int EscolaId { get; set; }
         public IEnumerable<Materia> Materias { get; set; }
-        [ForeignKey("Id")]
         public IEnumerable<Aluno> Alunos { get; set; }
-        [Column("Escola")]
-        public int EscolaFK { get; set; }
     }
 }

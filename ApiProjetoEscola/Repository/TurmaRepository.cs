@@ -1,6 +1,7 @@
 ﻿using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Model.Context;
 using ApiProjetoEscola.Repository.IRepository;
+using ApiProjetoEscola.Services;
 using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
@@ -27,34 +28,18 @@ namespace ApiProjetoEscola.Repository
 
         public Turma Create(Turma turma)
         {
-            var escola = _context.Escolas.FirstOrDefault(e => e.Id == turma.EscolaFK);
-
+            var escola = _context.Escolas.Where(e => e.EscolaId == turma.EscolaId).Include(e => e.Turmas).FirstOrDefault();
             if (escola == null) return null;
 
-            var sql = $"INSERT INTO Turma (Codigo, Escola) values (@turmaCodigo, @turmaEscolaFK)";
-
-            try
-            {
-                using (var connection = new SqlConnection(_connection))
-                {
-                    var affectedRows = connection.Execute(sql, new { turmaCodigo = turma.Codigo, turmaEscolaFK = turma.EscolaFK });
-
-                    if (affectedRows < 0)
-                    {
-                        return null;
-                    }
-                }
-                return turma;
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
+            escola.Turmas.Add(turma);
+            _context.SaveChanges();
+            return turma;
+           
         }
 
         public void Delete(int id)
         {
-            var result = _context.Turmas.FirstOrDefault(t => t.Id == id);
+            var result = _context.Turmas.FirstOrDefault(t => t.TurmaId == id);
 
             if (result != null)
             {
@@ -77,12 +62,12 @@ namespace ApiProjetoEscola.Repository
 
         public Turma FindByID(int id)
         {
-            return _context.Turmas.FirstOrDefault(t => t.Id == id);
+            return _context.Turmas.FirstOrDefault(t => t.TurmaId == id);
         }
 
         public Turma Update(Turma turma)
         {
-            var result = FindByID(turma.Id);
+            var result = FindByID(turma.TurmaId);
 
             if (result == null) return null;
 

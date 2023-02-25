@@ -61,11 +61,11 @@ namespace ApiProjetoEscola.Controllers
             return Ok(_service.Update(turma));
         }
 
-        [HttpDelete("{Id}")]
+        [HttpDelete]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Delete(int id)
+        public IActionResult Delete([FromQuery] int id)
         {
             _service.Delete(id);
             return NoContent();

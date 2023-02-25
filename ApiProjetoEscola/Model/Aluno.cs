@@ -4,22 +4,17 @@ using System;
 
 namespace ApiProjetoEscola.Model
 {
-    [Table("Aluno")]
+    [Table("Alunos")]
     public class Aluno
     {
         [Key]
-        public int Id { get; set; }
-        [Column("Matricula")]
-        public Guid Matricula { get; set; }
-        [Column("Nome")]
-        public string Nome { get; set; }
-        [Column("Sobrenome")]
-        public string Sobrenome { get; set; }
-        [Column("CPF")]
+        public int AlunoId { get; set; }        
+        public Guid Matricula { get; set; }        
+        public string Nome { get; set; }        
+        public string Sobrenome { get; set; }        
         public string Cpf { get; set; }
         [Column("Data_Nascimento")]
-        public DateTime DataNascimento { get; set; }
-        [Column("Turma")]
-        public int TurmaFK{ get; set; }
+        public DateTime DataNascimento { get; set; }        
+        public int TurmaId{ get; set; }
     }
 }

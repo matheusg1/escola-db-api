@@ -32,7 +32,7 @@ namespace ApiProjetoEscola.Repository
 
         public void Delete(int id)
         {
-            var result = _context.Alunos.FirstOrDefault(a => a.Id == id);
+            var result = _context.Alunos.FirstOrDefault(a => a.AlunoId == id);
 
             if (result != null)
             {
@@ -55,7 +55,7 @@ namespace ApiProjetoEscola.Repository
 
         public Aluno FindByID(int id)
         {
-            return _context.Alunos.FirstOrDefault(a => a.Id == id);
+            return _context.Alunos.FirstOrDefault(a => a.AlunoId == id);
         }
 
         public List<Aluno> FindByName(string nome, string sobrenome)
@@ -77,7 +77,7 @@ namespace ApiProjetoEscola.Repository
 
         public Aluno Update(Aluno aluno)
         {
-            var result = FindByID(aluno.Id);
+            var result = FindByID(aluno.AlunoId);
 
             if (result == null) return null;
 

@@ -32,7 +32,7 @@ namespace ApiProjetoEscola.Repository
 
         public void Delete(int id)
         {
-            var result = _context.Materias.FirstOrDefault(m => m.Id == id);
+            var result = _context.Materias.FirstOrDefault(m => m.MateriaId == id);
 
             if (result != null)
             {
@@ -55,12 +55,12 @@ namespace ApiProjetoEscola.Repository
 
         public Materia FindByID(int id)
         {
-            return _context.Materias.FirstOrDefault(m => m.Id == id);
+            return _context.Materias.FirstOrDefault(m => m.MateriaId == id);
         }
 
         public Materia Update(Materia materia)
         {
-            var result = FindByID(materia.Id);
+            var result = FindByID(materia.MateriaId);
 
             if (result == null) return null;
 

@@ -33,7 +33,7 @@ namespace ApiProjetoEscola.Repository
 
         public void Delete(int id)
         {
-            var result = _context.Escolas.FirstOrDefault(e => e.Id == id);
+            var result = _context.Escolas.FirstOrDefault(e => e.EscolaId == id);
 
             if (result != null)
             {
@@ -56,12 +56,12 @@ namespace ApiProjetoEscola.Repository
 
         public Escola FindByID(int id)
         {
-            return _context.Escolas.FirstOrDefault(e => e.Id == id);                
+            return _context.Escolas.FirstOrDefault(e => e.EscolaId == id);                
         }
 
         public Escola Update(Escola escola)
         {
-            var result = FindByID(escola.Id);
+            var result = FindByID(escola.EscolaId);
 
             if (result == null) return null;
 

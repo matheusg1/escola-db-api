@@ -4,16 +4,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ApiProjetoEscola.Model
 {
-    [Table("Materia")]
+    [Table("Materias")]
     public class Materia
     {
         [Key]
-        public int Id { get; set; }
-        [Column("Nome")]
-        public string Nome { get; set; }
-        [Column("Professor")]
-        public string Professor { get; set; }
-        [Column("Turma")]
-        public int TurmaFK { get; set; }
+        public int MateriaId { get; set; }       
+        public string Nome { get; set; }        
+        public string Professor { get; set; }        
+        public int TurmaId { get; set; }
     }
 }
