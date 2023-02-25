@@ -16,25 +16,16 @@ namespace ApiProjetoEscola.Repository
     public class TurmaRepository : ITurmaRepository
     {
         private ProjetoDbContext _context;
-        private IConfiguration _config;
-        private string _connection;
-
-        public TurmaRepository(ProjetoDbContext context, IConfiguration config)
+        public TurmaRepository(ProjetoDbContext context)
         {
             _context = context;
-            _config = config;
-            _connection = _config.GetConnectionString("EscolaDbCasa");
         }
 
         public Turma Create(Turma turma)
         {
-            var escola = _context.Escolas.Where(e => e.EscolaId == turma.EscolaId).Include(e => e.Turmas).FirstOrDefault();
-            if (escola == null) return null;
-
-            escola.Turmas.Add(turma);
+            _context.Turmas.Add(turma);
             _context.SaveChanges();
             return turma;
-           
         }
 
         public void Delete(int id)

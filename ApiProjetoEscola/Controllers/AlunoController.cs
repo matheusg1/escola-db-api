@@ -19,6 +19,7 @@ namespace ApiProjetoEscola.Controllers
         }
 
         [HttpGet]
+        [Route("findAll")]
         [ProducesResponseType((200), Type = typeof(List<Aluno>))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
@@ -29,7 +30,7 @@ namespace ApiProjetoEscola.Controllers
         }
 
         [HttpGet]
-        [Route("FindByID")]
+        [Route("findByID")]
         [ProducesResponseType((200), Type = typeof(Aluno))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
@@ -40,7 +41,7 @@ namespace ApiProjetoEscola.Controllers
         }
 
         [HttpGet]
-        [Route("FindByName")]
+        [Route("findByName")]
         [ProducesResponseType((200), Type = typeof(List<Aluno>))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
@@ -54,7 +55,7 @@ namespace ApiProjetoEscola.Controllers
         }
 
         [HttpPost]
-        [Route("Create")]
+        [Route("create")]
         [ProducesResponseType((200), Type = typeof(Aluno))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -65,7 +66,7 @@ namespace ApiProjetoEscola.Controllers
         }
 
         [HttpPut]
-        [Route("Update")]
+        [Route("update")]
         [ProducesResponseType((200), Type = typeof(Aluno))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
@@ -76,7 +77,7 @@ namespace ApiProjetoEscola.Controllers
         }
 
         [HttpDelete]
-        [Route("Delete")]
+        [Route("delete")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
