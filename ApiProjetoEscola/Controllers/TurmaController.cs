@@ -62,6 +62,7 @@ namespace ApiProjetoEscola.Controllers
         }
 
         [HttpDelete]
+        [Route("Delete")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
