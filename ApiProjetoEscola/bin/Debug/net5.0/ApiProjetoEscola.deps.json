@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "ApiProjetoEscola/1.0.0": {
         "dependencies": {
+          "Dapper": "2.0.123",
           "Evolve": "3.1.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.17",
           "Microsoft.AspNetCore.Mvc.Formatters.Xml": "2.2.0",
@@ -328,6 +329,17 @@
         },
         "compile": {
           "ApiProjetoEscola.dll": {}
+        }
+      },
+      "Dapper/2.0.123": {
+        "runtime": {
+          "lib/net5.0/Dapper.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.123.33578"
+          }
+        },
+        "compile": {
+          "lib/net5.0/Dapper.dll": {}
         }
       },
       "Evolve/3.1.0": {
@@ -3280,6 +3292,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Dapper/2.0.123": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RDFF4rBLLmbpi6pwkY7q/M6UXHRJEOerplDGE5jwEkP/JGJnBauAClYavNKJPW1yOTWRPIyfj4is3EaJxQXILQ==",
+      "path": "dapper/2.0.123",
+      "hashPath": "dapper.2.0.123.nupkg.sha512"
     },
     "Evolve/3.1.0": {
       "type": "package",

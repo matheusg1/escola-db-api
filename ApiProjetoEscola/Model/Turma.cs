@@ -7,6 +7,7 @@ namespace ApiProjetoEscola.Model
     [Table("Turma")]
     public class Turma
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int Id { get; set; }
         [Column("Codigo")]

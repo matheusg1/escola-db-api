@@ -1,7 +1,11 @@
 ﻿using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Model.Context;
 using ApiProjetoEscola.Repository.IRepository;
+using Dapper;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,18 +15,35 @@ namespace ApiProjetoEscola.Repository
     public class TurmaRepository : ITurmaRepository
     {
         private ProjetoDbContext _context;
+        private IConfiguration _config;
+        private string _connection;
 
-        public TurmaRepository(ProjetoDbContext context)
+        public TurmaRepository(ProjetoDbContext context, IConfiguration config)
         {
             _context = context;
+            _config = config;
+            _connection = _config.GetConnectionString("EscolaDbCasa");
         }
 
         public Turma Create(Turma turma)
         {
+            var escola = _context.Escolas.FirstOrDefault(e => e.Id == turma.EscolaFK);
+
+            if (escola == null) return null;
+
+            var sql = $"INSERT INTO Turma (Codigo, Escola) values (@turmaCodigo, @turmaEscolaFK)";
+
             try
             {
-                _context.Add(turma);
-                _context.SaveChanges();
+                using (var connection = new SqlConnection(_connection))
+                {
+                    var affectedRows = connection.Execute(sql, new { turmaCodigo = turma.Codigo, turmaEscolaFK = turma.EscolaFK });
+
+                    if (affectedRows < 0)
+                    {
+                        return null;
+                    }
+                }
                 return turma;
             }
             catch (Exception e)

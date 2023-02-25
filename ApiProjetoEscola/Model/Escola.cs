@@ -13,6 +13,6 @@ namespace ApiProjetoEscola.Model
         [Column("Endereco")]
         public string Endereco { get; set; }
         [ForeignKey("Id")]
-        public IEnumerable<Turma> Turmas { get; set; }
+        public List<Turma> Turmas { get; set; }
     }
 }
