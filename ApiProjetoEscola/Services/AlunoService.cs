@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System;
 using ApiProjetoEscola.Repository.IRepository;
-
+using System.Threading.Tasks;
 
 namespace ApiProjetoEscola.Services
 {
@@ -28,9 +28,9 @@ namespace ApiProjetoEscola.Services
             _repository.Delete(id);
         }
 
-        public List<Aluno> FindAll()
+        public async Task<List<Aluno>> FindAllAsync()
         {
-            return _repository.FindAll();
+            return await _repository.FindAllAsync();
         }
 
         public Aluno FindByID(int id)

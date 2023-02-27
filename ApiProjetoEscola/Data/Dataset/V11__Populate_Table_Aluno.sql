@@ -18,7 +18,7 @@ INSERT [dbo].[Alunos] ([AlunoId], [Matricula], [Nome], [Sobrenome], [CPF], [Data
 GO
 INSERT [dbo].[Alunos] ([AlunoId], [Matricula], [Nome], [Sobrenome], [CPF], [Data_Nascimento], [TurmaId]) VALUES (9, N'df33dd63-02b9-498f-9759-95f92bd72e5b', N'Payton', N'McClure', N'8402434355', CAST(N'2021-04-19' AS Date), 1)
 GO
-INSERT [dbo].[Alunos] ([AlunoId], [Matricula], [Nome], [Sobrenome], [CPF], [Data_Nascimento], [TurmaId]) VALUES (10, N'2993e91d-486f-4365-b47f-e5cb243085cc', N'Nicolais', N'How to preserve', N'4392143880', CAST(N'2022-06-26' AS Date), 1)
+INSERT [dbo].[Alunos] ([AlunoId], [Matricula], [Nome], [Sobrenome], [CPF], [Data_Nascimento], [TurmaId]) VALUES (10, N'2993e91d-486f-4365-b47f-e5cb243085cc', N'Nicolais', N'Verne', N'4392143880', CAST(N'2022-06-26' AS Date), 1)
 GO
 INSERT [dbo].[Alunos] ([AlunoId], [Matricula], [Nome], [Sobrenome], [CPF], [Data_Nascimento], [TurmaId]) VALUES (11, N'40e9b439-40df-4692-acf0-6c78e19ff6a1', N'Jarrad', N'Kinforth', N'0134595335', CAST(N'2023-01-05' AS Date), 1)
 GO

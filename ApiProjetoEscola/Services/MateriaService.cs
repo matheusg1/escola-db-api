@@ -2,6 +2,7 @@
 using ApiProjetoEscola.Services.IServices;
 using System.Collections.Generic;
 using ApiProjetoEscola.Repository.IRepository;
+using System.Threading.Tasks;
 
 namespace ApiProjetoEscola.Services
 {
@@ -24,9 +25,9 @@ namespace ApiProjetoEscola.Services
             _repository.Delete(id);
         }
 
-        public List<Materia> FindAll()
+        public async Task<List<Materia>> FindAllAsync()
         {
-            return _repository.FindAll();
+            return await _repository.FindAllAsync();
         }
 
         public Materia FindByID(int id)

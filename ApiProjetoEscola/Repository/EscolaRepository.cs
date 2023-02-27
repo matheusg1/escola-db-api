@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ApiProjetoEscola.Repository
 {
@@ -49,9 +50,9 @@ namespace ApiProjetoEscola.Repository
             }
         }
 
-        public List<Escola> FindAll()
+        public async Task<List<Escola>> FindAllAsync()
         {
-            return _context.Escolas.OrderBy(e => e.Nome).ToList();
+            return await _context.Escolas.OrderBy(e => e.Nome).ToListAsync();
         }
 
         public Escola FindByID(int id)

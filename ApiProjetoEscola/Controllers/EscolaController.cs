@@ -2,6 +2,7 @@
 using ApiProjetoEscola.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ApiProjetoEscola.Controllers
 {
@@ -22,9 +23,9 @@ namespace ApiProjetoEscola.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult FindAll()
+        public async Task<IActionResult> FindAllAsync()
         {
-            return Ok(_service.FindAll());
+            return Ok(await _service.FindAllAsync());
         }
 
         [HttpGet]

@@ -1,5 +1,6 @@
 ﻿using ApiProjetoEscola.Model;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ApiProjetoEscola.Services.IServices
 {
@@ -7,7 +8,7 @@ namespace ApiProjetoEscola.Services.IServices
     {
         Materia Create(Materia materia);
         Materia FindByID(int id);
-        List<Materia> FindAll();
+        Task<List<Materia>> FindAllAsync();
         Materia Update(Materia materia);
         void Delete(int id);
     }

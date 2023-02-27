@@ -1,5 +1,6 @@
 ﻿using ApiProjetoEscola.Model;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ApiProjetoEscola.Services.IServices
 {
@@ -7,7 +8,7 @@ namespace ApiProjetoEscola.Services.IServices
     {
         Turma Create(Turma turma);
         Turma FindByID(int id);
-        List<Turma> FindAll();
+        Task<List<Turma>> FindAllAsync();
         Turma Update(Turma turma);
         void Delete(int id);
     }

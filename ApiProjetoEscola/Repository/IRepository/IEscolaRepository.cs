@@ -1,5 +1,6 @@
 ﻿using ApiProjetoEscola.Model;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ApiProjetoEscola.Repository.IRepository
 {
@@ -7,7 +8,7 @@ namespace ApiProjetoEscola.Repository.IRepository
     {
         Escola Create(Escola escola);
         Escola FindByID(int id);
-        List<Escola> FindAll();
+        Task<List<Escola>> FindAllAsync();
         Escola Update(Escola escola);
         void Delete(int id);
     }

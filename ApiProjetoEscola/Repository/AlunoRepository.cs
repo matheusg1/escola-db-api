@@ -1,9 +1,11 @@
 ﻿using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Model.Context;
 using ApiProjetoEscola.Repository.IRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ApiProjetoEscola.Repository
 {
@@ -49,9 +51,9 @@ namespace ApiProjetoEscola.Repository
             }
         }
 
-        public List<Aluno> FindAll()
+        public async Task<List<Aluno>> FindAllAsync()
         {
-            return _context.Alunos.OrderBy(a => a.Nome).ToList();
+            return await _context.Alunos.OrderBy(a => a.Nome).ToListAsync();
         }
 
         public Aluno FindByID(int id)

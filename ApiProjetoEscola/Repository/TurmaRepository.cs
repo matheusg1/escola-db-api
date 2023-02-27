@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ApiProjetoEscola.Repository
 {
@@ -46,9 +47,9 @@ namespace ApiProjetoEscola.Repository
             }
         }
 
-        public List<Turma> FindAll()
+        public async Task<List<Turma>> FindAllAsync()
         {
-            return _context.Turmas.ToList();
+            return await _context.Turmas.ToListAsync();
         }
 
         public Turma FindByID(int id)

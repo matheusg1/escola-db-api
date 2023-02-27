@@ -3,6 +3,7 @@ using ApiProjetoEscola.Services.IServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ApiProjetoEscola.Controllers
 {
@@ -24,9 +25,9 @@ namespace ApiProjetoEscola.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Get()
+        public async Task<IActionResult> FindAllAsync()
         {
-            return Ok(_service.FindAll());
+            return Ok(await _service.FindAllAsync());
         }
 
         [HttpGet]
