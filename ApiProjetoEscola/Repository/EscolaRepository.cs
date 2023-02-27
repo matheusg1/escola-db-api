@@ -55,14 +55,14 @@ namespace ApiProjetoEscola.Repository
             return await _context.Escolas.OrderBy(e => e.Nome).ToListAsync();
         }
 
-        public Escola FindByID(int id)
+        public async Task<Escola> FindByIDAsync(int id)
         {
-            return _context.Escolas.Where(e => e.EscolaId == id).Include(e => e.Turmas).FirstOrDefault();
+            return await _context.Escolas.Where(e => e.EscolaId == id).Include(e => e.Turmas).FirstOrDefaultAsync();
         }
 
         public Escola Update(Escola escola)
         {
-            var result = FindByID(escola.EscolaId);
+            var result = FindByIDAsync(escola.EscolaId);
 
             if (result == null) return null;
 

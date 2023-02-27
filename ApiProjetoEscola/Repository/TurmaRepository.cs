@@ -52,14 +52,14 @@ namespace ApiProjetoEscola.Repository
             return await _context.Turmas.ToListAsync();
         }
 
-        public Turma FindByID(int id)
+        public async Task<Turma> FindByIDAsync(int id)
         {
-            return _context.Turmas.Where(t => t.TurmaId == id).Include(t => t.Alunos).FirstOrDefault();
+            return await _context.Turmas.Where(t => t.TurmaId == id).Include(t => t.Alunos).FirstOrDefaultAsync();
         }
 
         public Turma Update(Turma turma)
         {
-            var result = FindByID(turma.TurmaId);
+            var result = FindByIDAsync(turma.TurmaId);
 
             if (result == null) return null;
 

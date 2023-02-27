@@ -33,9 +33,9 @@ namespace ApiProjetoEscola.Services
             return await _repository.FindAllAsync();
         }
 
-        public Aluno FindByID(int id)
+        public async Task<Aluno> FindByIDAsync(int id)
         {
-            return _repository.FindByID(id);
+            return await _repository.FindByIDAsync(id);
         }
 
         public List<Aluno> FindByName(string nome, string sobrenome)

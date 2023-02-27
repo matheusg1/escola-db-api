@@ -7,7 +7,7 @@ namespace ApiProjetoEscola.Services.IServices
     public interface ITurmaService
     {
         Turma Create(Turma turma);
-        Turma FindByID(int id);
+        Task<Turma> FindByIDAsync(int id);
         Task<List<Turma>> FindAllAsync();
         Turma Update(Turma turma);
         void Delete(int id);

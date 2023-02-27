@@ -7,7 +7,7 @@ namespace ApiProjetoEscola.Repository.IRepository
     public interface IAlunoRepository
     {
         Aluno Create(Aluno aluno);
-        Aluno FindByID(int id);
+        Task<Aluno> FindByIDAsync(int id);
         List<Aluno> FindByName(string nome, string sobrenome);
         Task<List<Aluno>> FindAllAsync();
         Aluno Update(Aluno aluno);

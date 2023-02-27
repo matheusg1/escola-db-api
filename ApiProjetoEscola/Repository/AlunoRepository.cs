@@ -56,9 +56,9 @@ namespace ApiProjetoEscola.Repository
             return await _context.Alunos.OrderBy(a => a.Nome).ToListAsync();
         }
 
-        public Aluno FindByID(int id)
+        public async Task<Aluno> FindByIDAsync(int id)
         {
-            return _context.Alunos.FirstOrDefault(a => a.AlunoId == id);
+            return await _context.Alunos.FirstOrDefaultAsync(a => a.AlunoId == id);
         }
 
         public List<Aluno> FindByName(string nome, string sobrenome)
@@ -80,7 +80,7 @@ namespace ApiProjetoEscola.Repository
 
         public Aluno Update(Aluno aluno)
         {
-            var result = FindByID(aluno.AlunoId);
+            var result = FindByIDAsync(aluno.AlunoId);
 
             if (result == null) return null;
 
