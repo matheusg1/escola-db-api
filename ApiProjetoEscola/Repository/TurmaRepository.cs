@@ -53,7 +53,7 @@ namespace ApiProjetoEscola.Repository
 
         public Turma FindByID(int id)
         {
-            return _context.Turmas.FirstOrDefault(t => t.TurmaId == id);
+            return _context.Turmas.Where(t => t.TurmaId == id).Include(t => t.Alunos).FirstOrDefault();
         }
 
         public Turma Update(Turma turma)

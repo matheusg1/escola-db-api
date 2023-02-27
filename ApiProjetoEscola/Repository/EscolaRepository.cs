@@ -51,12 +51,12 @@ namespace ApiProjetoEscola.Repository
 
         public List<Escola> FindAll()
         {
-            return _context.Escolas.ToList();
+            return _context.Escolas.OrderBy(e => e.Nome).ToList();
         }
 
         public Escola FindByID(int id)
         {
-            return _context.Escolas.FirstOrDefault(e => e.EscolaId == id);                
+            return _context.Escolas.Where(e => e.EscolaId == id).Include(e => e.Turmas).FirstOrDefault();
         }
 
         public Escola Update(Escola escola)

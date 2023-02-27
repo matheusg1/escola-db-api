@@ -18,6 +18,7 @@ namespace ApiProjetoEscola.Repository
 
         public Aluno Create(Aluno aluno)
         {
+            aluno.Matricula = Guid.NewGuid();           
             try
             {
                 _context.Add(aluno);
@@ -50,7 +51,7 @@ namespace ApiProjetoEscola.Repository
 
         public List<Aluno> FindAll()
         {
-            return _context.Alunos.ToList();
+            return _context.Alunos.OrderBy(a => a.Nome).ToList();
         }
 
         public Aluno FindByID(int id)
