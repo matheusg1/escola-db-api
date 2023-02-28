@@ -59,7 +59,7 @@ namespace ApiProjetoEscola.Repository
 
         public Turma Update(Turma turma)
         {
-            var result = FindByIDAsync(turma.TurmaId);
+            var result = _context.Turmas.Where(t => t.TurmaId == turma.TurmaId).Include(t => t.Alunos).FirstOrDefault();
 
             if (result == null) return null;
 

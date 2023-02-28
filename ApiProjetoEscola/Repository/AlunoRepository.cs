@@ -80,7 +80,7 @@ namespace ApiProjetoEscola.Repository
 
         public Aluno Update(Aluno aluno)
         {
-            var result = FindByIDAsync(aluno.AlunoId);
+            var result = _context.Alunos.FirstOrDefault(a => a.AlunoId == aluno.AlunoId);
 
             if (result == null) return null;
 

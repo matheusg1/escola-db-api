@@ -62,7 +62,8 @@ namespace ApiProjetoEscola.Repository
 
         public Escola Update(Escola escola)
         {
-            var result = FindByIDAsync(escola.EscolaId);
+
+            var result = _context.Escolas.Where(e => e.EscolaId == escola.EscolaId).Include(e => e.Turmas).FirstOrDefault();            
 
             if (result == null) return null;
 

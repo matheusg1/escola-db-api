@@ -62,7 +62,7 @@ namespace ApiProjetoEscola.Repository
 
         public Materia Update(Materia materia)
         {
-            var result = FindByIDAsync(materia.MateriaId);
+            var result = _context.Materias.FirstOrDefault(m => m.MateriaId == materia.MateriaId);            
 
             if (result == null) return null;
 
