@@ -29,9 +29,9 @@ namespace ApiProjetoEscola.Services
             return await _repository.FindAllAsync();
         }
 
-        public async Task<Escola> FindByIDAsync(int id)
+        public async Task<Escola> FindByIdAsync(int id)
         {
-            return await _repository.FindByIDAsync(id);
+            return await _repository.FindByIdAsync(id);
         }
 
         public Escola Update(Escola escola)

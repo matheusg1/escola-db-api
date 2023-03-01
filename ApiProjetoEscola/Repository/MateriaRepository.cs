@@ -55,7 +55,7 @@ namespace ApiProjetoEscola.Repository
             return await _context.Materias.ToListAsync();
         }
 
-        public async Task<Materia> FindByIDAsync(int id)
+        public async Task<Materia> FindByIdAsync(int id)
         {
             return await _context.Materias.FirstOrDefaultAsync(m => m.MateriaId == id);
         }

@@ -7,7 +7,7 @@ namespace ApiProjetoEscola.Services.IServices
     public interface IMateriaService
     {
         Materia Create(Materia materia);
-        Task<Materia> FindByIDAsync(int id);
+        Task<Materia> FindByIdAsync(int id);
         Task<List<Materia>> FindAllAsync();
         Materia Update(Materia materia);
         void Delete(int id);

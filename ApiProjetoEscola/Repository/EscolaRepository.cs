@@ -55,7 +55,7 @@ namespace ApiProjetoEscola.Repository
             return await _context.Escolas.OrderBy(e => e.Nome).ToListAsync();
         }
 
-        public async Task<Escola> FindByIDAsync(int id)
+        public async Task<Escola> FindByIdAsync(int id)
         {
             return await _context.Escolas.Where(e => e.EscolaId == id).Include(e => e.Turmas).FirstOrDefaultAsync();
         }

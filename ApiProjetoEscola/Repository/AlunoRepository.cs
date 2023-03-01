@@ -56,7 +56,7 @@ namespace ApiProjetoEscola.Repository
             return await _context.Alunos.OrderBy(a => a.Nome).ToListAsync();
         }
 
-        public async Task<Aluno> FindByIDAsync(int id)
+        public async Task<Aluno> FindByIdAsync(int id)
         {
             return await _context.Alunos.FirstOrDefaultAsync(a => a.AlunoId == id);
         }

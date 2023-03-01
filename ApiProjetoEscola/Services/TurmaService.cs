@@ -30,9 +30,9 @@ namespace ApiProjetoEscola.Services
             return await _repository.FindAllAsync();
         }
 
-        public async Task<Turma> FindByIDAsync(int id)
+        public async Task<Turma> FindByIdAsync(int id)
         {
-            return await _repository.FindByIDAsync(id);
+            return await _repository.FindByIdAsync(id);
         }
 
         public Turma Update(Turma turma)

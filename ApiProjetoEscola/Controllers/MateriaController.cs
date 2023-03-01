@@ -34,9 +34,9 @@ namespace ApiProjetoEscola.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public async Task<IActionResult> FindByIDAsync([FromQuery] int id)
+        public async Task<IActionResult> FindByIdAsync([FromQuery] int id)
         {
-            return Ok(await _service.FindByIDAsync(id));
+            return Ok(await _service.FindByIdAsync(id));
         }
 
         [HttpPost]

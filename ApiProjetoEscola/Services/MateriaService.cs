@@ -30,9 +30,9 @@ namespace ApiProjetoEscola.Services
             return await _repository.FindAllAsync();
         }
 
-        public async Task<Materia> FindByIDAsync(int id)
+        public async Task<Materia> FindByIdAsync(int id)
         {
-            return await _repository.FindByIDAsync(id);
+            return await _repository.FindByIdAsync(id);
         }
 
         public Materia Update(Materia materia)
