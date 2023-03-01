@@ -54,7 +54,7 @@ namespace ApiProjetoEscola.Repository
 
         public async Task<Turma> FindByIdAsync(int id)
         {
-            return await _context.Turmas.Where(t => t.TurmaId == id).Include(t => t.Alunos).FirstOrDefaultAsync();
+            return await _context.Turmas.Where(t => t.TurmaId == id).Include(t => t.Alunos).Include(t => t.Materias).FirstOrDefaultAsync();
         }
 
         public Turma Update(Turma turma)
