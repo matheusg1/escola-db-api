@@ -73,6 +73,16 @@ namespace ApiProjetoEscola.Repository
             {
                 throw new Exception(e.Message);
             }
+
+        }
+        public async Task<int?> GetQuantidadeAlunosByTurmaAsync(int id)
+        {
+            var result = await _context.Turmas.Where(t => t.TurmaId == id).Include(t => t.Alunos).FirstOrDefaultAsync();
+            if (result == null)
+            {
+                return null;
+            }
+            return result.Alunos.Count();
         }
     }
 }

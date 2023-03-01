@@ -11,5 +11,6 @@ namespace ApiProjetoEscola.Repository.IRepository
         Task<List<Turma>> FindAllAsync();
         Turma Update(Turma turma);
         void Delete(int id);
+        Task<int?> GetQuantidadeAlunosByTurmaAsync(int id);
     }
 }

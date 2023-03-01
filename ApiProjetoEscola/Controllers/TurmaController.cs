@@ -40,6 +40,19 @@ namespace ApiProjetoEscola.Controllers
             return Ok(await _service.FindByIdAsync(id));
         }
 
+        [HttpGet]
+        [Route("GetQuantidadeAlunosByTurma")]
+        public async Task<IActionResult> GetQuantidadeAlunosByTurmaAsync(int id)
+        {
+            var result = await _service.GetQuantidadeAlunosByTurmaAsync(id);
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(new { quantidadeAlunos = result });
+        }
+
+
         [HttpPost]
         [Route("create")]
         [ProducesResponseType((200), Type = typeof(Turma))]

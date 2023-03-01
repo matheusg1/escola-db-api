@@ -39,5 +39,12 @@ namespace ApiProjetoEscola.Services
         {
             return _repository.Update(turma);
         }
+
+        public async Task<int?> GetQuantidadeAlunosByTurmaAsync(int id)
+        {
+            var result = await _repository.GetQuantidadeAlunosByTurmaAsync(id);
+            if (result == null) return null;
+            return result;
+        }
     }
 }
