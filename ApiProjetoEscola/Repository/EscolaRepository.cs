@@ -52,18 +52,25 @@ namespace ApiProjetoEscola.Repository
 
         public async Task<List<Escola>> FindAllAsync()
         {
-            return await _context.Escolas.OrderBy(e => e.Nome).ToListAsync();
+            return await _context.Escolas.OrderBy(e => e.Nome)
+                .Include(e => e.Turmas)
+                .ToListAsync();
         }
 
         public async Task<Escola> FindByIdAsync(int id)
         {
-            return await _context.Escolas.Where(e => e.EscolaId == id).Include(e => e.Turmas).FirstOrDefaultAsync();
+            return await _context.Escolas.Where(e => e.EscolaId == id)
+                .Include(e => e.Turmas)
+                .ThenInclude(t => t.Alunos)
+                .FirstOrDefaultAsync();
         }
 
         public Escola Update(Escola escola)
         {
-
-            var result = _context.Escolas.Where(e => e.EscolaId == escola.EscolaId).Include(e => e.Turmas).FirstOrDefault();            
+            var result = _context.Escolas
+                .Where(e => e.EscolaId == escola.EscolaId)
+                .Include(e => e.Turmas)
+                .FirstOrDefault();            
 
             if (result == null) return null;
 
