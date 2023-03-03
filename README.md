@@ -3,8 +3,12 @@
  API que permite o gerenciamento de informações de turmas/matérias/alunos relacionadas a uma escola. 
 
 Consumida por um web app com React e um console app com C#
+
 [Repositório da aplicação com React](https://github.com/matheusg1/projeto-escola-app-react)
+
 [Repositório da aplicação via console](https://github.com/matheusg1/escola-console)
+
+---
 
  - [x] Database first, migrations e seeders criadas com
    [EvolveDb](https://github.com/lecaillon/Evolve)
@@ -15,9 +19,13 @@ Consumida por um web app com React e um console app com C#
 ---
 ### Endpoints
 `/Entidade/findAll`
+
  `/Entidade/findById`
+ 
  `/Entidade/create`
+ 
  `/Entidade/update`
+ 
  `/Entidade/delete`
 
 ### Diagrama Entidade Relacionamento
