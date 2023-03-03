@@ -2,7 +2,6 @@
 using ApiProjetoEscola.Model.Context;
 using ApiProjetoEscola.Repository.IRepository;
 using ApiProjetoEscola.Services;
-using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;

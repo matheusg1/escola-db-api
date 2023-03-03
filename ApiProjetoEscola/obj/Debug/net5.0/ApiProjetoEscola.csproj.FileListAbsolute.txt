@@ -205,7 +205,6 @@ C:\Users\Matheus\Desktop\temporario escola\Escola-db-api\ApiProjetoEscola\obj\De
 C:\Users\Matheus\Desktop\temporario escola\Escola-db-api\ApiProjetoEscola\obj\Debug\net5.0\ApiProjetoEscola.pdb
 C:\Users\Matheus\Desktop\temporario escola\Escola-db-api\ApiProjetoEscola\obj\Debug\net5.0\ApiProjetoEscola.genruntimeconfig.cache
 C:\Users\Matheus\Desktop\temporario escola\Escola-db-api\ApiProjetoEscola\obj\Debug\net5.0\ref\ApiProjetoEscola.dll
-C:\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\Dapper.dll
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\ApiProjetoEscola\ApiProjetoEscola\bin\Debug\net5.0\Dapper.dll
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\appsettings.json
