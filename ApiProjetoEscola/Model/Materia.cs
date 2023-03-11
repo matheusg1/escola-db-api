@@ -12,5 +12,12 @@ namespace ApiProjetoEscola.Model
         public string Nome { get; set; }        
         public string Professor { get; set; }        
         public int TurmaId { get; set; }
+
+        public Materia(string nome, string professor, int turmaId)
+        {
+            Nome = nome;
+            Professor = professor;
+            TurmaId = turmaId;
+        }
     }
 }

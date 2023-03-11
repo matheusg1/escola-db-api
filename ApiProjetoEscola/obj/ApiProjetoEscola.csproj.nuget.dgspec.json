@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\CSharp\\escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj": {}
+    "C:\\CSharp\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj": {}
   },
   "projects": {
-    "C:\\CSharp\\escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj": {
+    "C:\\CSharp\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CSharp\\escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
+        "projectUniqueName": "C:\\CSharp\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
         "projectName": "ApiProjetoEscola",
-        "projectPath": "C:\\CSharp\\escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
+        "projectPath": "C:\\CSharp\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
         "packagesPath": "C:\\Users\\Matheus\\.nuget\\packages\\",
         "outputPath": "C:\\CSharp\\escola-db-api\\ApiProjetoEscola\\obj\\",
         "projectStyle": "PackageReference",

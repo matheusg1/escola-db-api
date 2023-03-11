@@ -38,5 +38,11 @@ namespace ApiProjetoEscola.Model
                 return null;
             }
         }
+
+        public Turma(string codigo, int escolaId)
+        {
+            Codigo = codigo;
+            EscolaId = escolaId;
+        }
     }
 }

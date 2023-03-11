@@ -1,4 +1,5 @@
-﻿using ApiProjetoEscola.Model;
+﻿using ApiProjetoEscola.DTO;
+using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -58,9 +59,10 @@ namespace ApiProjetoEscola.Controllers
         [ProducesResponseType((200), Type = typeof(Turma))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Create([FromBody] Turma turma)
+        public IActionResult Create([FromBody] CreateTurmaDto turmaDto)
         {
-            if (turma == null) return BadRequest();
+            if (turmaDto == null) return BadRequest();
+            var turma = new Turma(turmaDto.Codigo, turmaDto.EscolaId);
 
             return Ok(_service.Create(turma));
         }

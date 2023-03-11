@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P8QJT4OkSS/lckizDxR9b5nPUvOPpSi++4Q0BMobosbL4VIF+OlgNCB31L5vFyUjqC1jGiGRMuy/QRoa0XptuQ==",
+  "dgSpecHash": "UOQYiZ0b4vD0WT10xizvYKk+lxkcEtFLc2MoiBhiKkbqSeI0dLWX1VG3JIpx7xyKiGz5AmAwAFGir69KR9bUZw==",
   "success": true,
-  "projectFilePath": "C:\\CSharp\\escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
+  "projectFilePath": "C:\\CSharp\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Matheus\\.nuget\\packages\\evolve\\3.1.0\\evolve.3.1.0.nupkg.sha512",
     "C:\\Users\\Matheus\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

@@ -1,4 +1,5 @@
-﻿using ApiProjetoEscola.Model;
+﻿using ApiProjetoEscola.DTO;
+using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Services.IServices;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -44,9 +45,11 @@ namespace ApiProjetoEscola.Controllers
         [ProducesResponseType((200), Type = typeof(Escola))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Create([FromBody] Escola escola)
+        public IActionResult Create([FromBody] CreateEscolaDto escolaDto)
         {
-            if (escola == null) return BadRequest();
+            if (escolaDto == null) return BadRequest();
+
+            var escola = new Escola(escolaDto.Nome, escolaDto.Endereco );
 
             return Ok(_service.Create(escola));
         }

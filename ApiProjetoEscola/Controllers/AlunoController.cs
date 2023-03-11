@@ -1,4 +1,5 @@
-﻿using ApiProjetoEscola.Model;
+﻿using ApiProjetoEscola.DTO;
+using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Services.IServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -60,9 +61,16 @@ namespace ApiProjetoEscola.Controllers
         [ProducesResponseType((200), Type = typeof(Aluno))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Create([FromBody] Aluno aluno)
+        public IActionResult Create([FromBody] CreateAlunoDto alunoDto)
         {
-            if (aluno == null) return BadRequest();
+            if (alunoDto == null) return BadRequest();
+            var aluno = new Aluno(
+                alunoDto.Nome,
+                alunoDto.Sobrenome,
+                alunoDto.Cpf,
+                alunoDto.DataNascimento,
+                alunoDto.TurmaId);
+
             return Ok(_service.Create(aluno));
         }
 

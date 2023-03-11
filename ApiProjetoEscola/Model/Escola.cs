@@ -23,5 +23,11 @@ namespace ApiProjetoEscola.Model
                 return null;
             }
         }
+
+        public Escola(string nome, string endereco)
+        {
+            Nome = nome;
+            Endereco = endereco;
+        }
     }
 }
