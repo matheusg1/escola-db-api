@@ -57,7 +57,6 @@ namespace ApiProjetoEscola.Services
             {
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
                 new Claim(JwtRegisteredClaimNames.UniqueName, usuario.NomeUsuario)
-
             };
 
             var accessToken = _tokenService.GenerateAccessToken(claims);
@@ -72,13 +71,15 @@ namespace ApiProjetoEscola.Services
                 true,
                 createDate.ToString(DATE_FORMAT),
                 expirationDate.ToString(DATE_FORMAT),
-                accessToken
+                accessToken,
+                refreshToken
                 );
         }
 
         public TokenDTO ValidateCredentials(TokenDTO token)
         {
             var accessToken = token.AccessToken;
+            var refreshToken = token.RefreshToken;
 
             var principal = _tokenService.GetPrincipalFromExpiredToken(accessToken);
             var nomeUsuario = principal.Identity.Name;
@@ -91,6 +92,7 @@ namespace ApiProjetoEscola.Services
             }
 
             accessToken = _tokenService.GenerateAccessToken(principal.Claims);
+            refreshToken = _tokenService.GenerateRefreshToken();
 
             _repository.RefreshUsuarioInfo(usuario);
 
@@ -101,14 +103,15 @@ namespace ApiProjetoEscola.Services
                 true,
                 createDate.ToString(DATE_FORMAT),
                 expirationDate.ToString(DATE_FORMAT),
-                accessToken
+                accessToken,
+                refreshToken
                 );
         }
-        /*
+        
         public bool RevokeToken(string nomeUsuario)
         {
             return _repository.RevokeToken(nomeUsuario);
         }
-        */
+        
     }
 }

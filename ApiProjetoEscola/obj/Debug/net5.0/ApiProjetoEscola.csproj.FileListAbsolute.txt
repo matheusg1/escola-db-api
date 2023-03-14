@@ -214,7 +214,6 @@ C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjet
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\ApiProjetoEscola.runtimeconfig.dev.json
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\ApiProjetoEscola.dll
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\ApiProjetoEscola.pdb
-C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\Dapper.dll
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\Evolve.dll
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll

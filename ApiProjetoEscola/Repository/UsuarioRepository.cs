@@ -87,7 +87,7 @@ namespace ApiProjetoEscola.Repository
             return BitConverter.ToString(hashedBytes);
         }
 
-        /*
+        
         public bool RevokeToken(string nomeUsuario)
         {
             var usuario = _context.Usuarios.SingleOrDefault(u => u.NomeUsuario == nomeUsuario);
@@ -97,7 +97,6 @@ namespace ApiProjetoEscola.Repository
             _context.SaveChanges();
             
             return true;
-        }
-        */
+        }        
     }
 }

@@ -30,15 +30,15 @@ namespace ApiProjetoEscola.Controllers
             
             return Ok(token);
         }
-        /*
+        
         [HttpPost]
         [Route("Refresh")]
         public IActionResult Refresh([FromBody] RefreshTokenDTO RefreshTokenDTO)
         {
             var tokenDTO = new TokenDTO
             {
-                AccessToken = RefreshTokenDTO.accessToken,
-                RefreshToken = RefreshTokenDTO.refreshToken                
+                AccessToken = RefreshTokenDTO.AccessToken,
+                RefreshToken = RefreshTokenDTO.RefreshToken                
             };
 
             if (tokenDTO == null) return BadRequest("Invalid client request");
@@ -62,7 +62,7 @@ namespace ApiProjetoEscola.Controllers
 
             return NoContent();
         }
-        */
+        
         [HttpPost]
         [Route("CreateUsuario")]
         public IActionResult CreateUsuario([FromBody] UsuarioDTO usuario)

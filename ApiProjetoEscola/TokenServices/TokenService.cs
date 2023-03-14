@@ -1,4 +1,5 @@
 ﻿using ApiProjetoEscola.Configurations;
+using ApiProjetoEscola.Model;
 using ApiProjetoEscola.TokenServices.ITokenServices;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -43,7 +44,7 @@ namespace ApiProjetoEscola.TokenServices
             {
                 rng.GetBytes(randomNumber);
                 return Convert.ToBase64String(randomNumber);
-            }                
+            }
         }
 
         public ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
@@ -60,12 +61,12 @@ namespace ApiProjetoEscola.TokenServices
             var tokenHandler = new JwtSecurityTokenHandler();
             SecurityToken securityToken;
             ClaimsPrincipal principal = tokenHandler.ValidateToken(token, tokenValidationParameters, out securityToken);
-            
-            var jwtSecurityToken = securityToken as JwtSecurityToken;
 
-            if(jwtSecurityToken == null ||
+            JwtSecurityToken jwtSecurityToken = securityToken as JwtSecurityToken;
+
+            if (jwtSecurityToken == null ||
                 !jwtSecurityToken.Header.Alg.Equals(
-                    SecurityAlgorithms.HmacSha256, 
+                    SecurityAlgorithms.HmacSha256,
                     StringComparison.InvariantCulture))
             {
                 throw new SecurityTokenException("Invalid Token");

@@ -10,6 +10,6 @@ namespace ApiProjetoEscola.Repository.IRepository
         Usuario ValidateCredentials(UsuarioDTO usuario);
         Usuario ValidateCredentials(string nomeUsuario);
         Usuario RefreshUsuarioInfo(Usuario usuario);
-        //bool RevokeToken(string nomeUsuario);
+        bool RevokeToken(string nomeUsuario);
     }
 }

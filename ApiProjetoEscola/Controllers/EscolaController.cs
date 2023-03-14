@@ -1,6 +1,7 @@
 ﻿using ApiProjetoEscola.DTO;
 using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Services.IServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace ApiProjetoEscola.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class EscolaController : ControllerBase
     {
         public IEscolaService _service;

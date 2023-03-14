@@ -10,26 +10,19 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
-using Microsoft.VisualBasic.FileIO;
 using Serilog;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using static System.Net.WebRequestMethods;
 
 namespace ApiProjetoEscola
 {
@@ -50,7 +43,7 @@ namespace ApiProjetoEscola
         {
             var tokenConfigurations = new TokenConfiguration();
             new ConfigureFromConfigurationOptions<TokenConfiguration>(
-                Configuration.GetSection("TokenConfiguration"))
+                Configuration.GetSection("TokenConfigurations"))
                     .Configure(tokenConfigurations);
 
             services.AddSingleton(tokenConfigurations);
@@ -88,7 +81,7 @@ namespace ApiProjetoEscola
                 .AllowAnyHeader();
             }));
 
-            var connection = Configuration.GetConnectionString("EscolaDbCasa");
+            var connection = Configuration.GetConnectionString("EscolaDb");
             services.AddDbContext<ProjetoDbContext>(options => options.UseSqlServer(connection));
             services.AddControllers();
 
