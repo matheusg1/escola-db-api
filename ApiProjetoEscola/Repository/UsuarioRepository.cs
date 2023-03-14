@@ -3,7 +3,6 @@ using ApiProjetoEscola.DTO;
 using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Model.Context;
 using ApiProjetoEscola.Repository.IRepository;
-using ApiProjetoEscola.TokenServices.ITokenServices;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Data;
@@ -22,7 +21,7 @@ namespace ApiProjetoEscola.Repository
             _context = context;
         }
 
-        public Usuario CreateUsuario(UsuarioDTO usuarioDto)
+        public Usuario Create(UsuarioDTO usuarioDto)
         {
             var usuario = _context.Usuarios.FirstOrDefault(u => u.NomeUsuario == usuarioDto.NomeUsuario);
             
@@ -41,6 +40,15 @@ namespace ApiProjetoEscola.Repository
 
             return novoUsuario;
         }
+
+        public Usuario Get(UsuarioDTO usuario)
+        {
+            var senhaHash = ComputeHash(usuario.Senha, new SHA256CryptoServiceProvider()).ToString();
+
+            return _context.Usuarios.FirstOrDefault(u => u.NomeUsuario == usuario.NomeUsuario 
+                && u.Senha == senhaHash);
+        }
+
         public void Add(Usuario usuario)
         {
             _context.Usuarios.Add(usuario);
@@ -82,7 +90,7 @@ namespace ApiProjetoEscola.Repository
 
         private object ComputeHash(string input, SHA256CryptoServiceProvider algorithm)
         {
-            Byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+            Byte[] inputBytes = Encoding.ASCII.GetBytes(input);
             Byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
             return BitConverter.ToString(hashedBytes);
         }
@@ -97,6 +105,22 @@ namespace ApiProjetoEscola.Repository
             _context.SaveChanges();
             
             return true;
-        }        
+        }
+
+        public string GetRefreshToken(string nomeUsuario)
+        {
+            return _context.Usuarios.FirstOrDefault(u => u.NomeUsuario == nomeUsuario).RefreshToken;
+        }
+
+        public void DeleteRefreshToken(string nomeUsuario, string refreshToken)
+        {
+            var usuario = _context.Usuarios.FirstOrDefault(u => u.NomeUsuario == nomeUsuario
+                && u.RefreshToken == refreshToken);
+
+            usuario.RefreshToken = null;
+            _context.SaveChanges();
+        }
+
+
     }
 }

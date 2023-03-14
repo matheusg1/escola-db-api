@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ApiProjetoEscola.Model
 {
@@ -13,12 +14,9 @@ namespace ApiProjetoEscola.Model
         [Column("Senha")]
         public string Senha { get; set; }
         [Column("Nome_Completo")]
-        public string NomeCompleto { get; set; }
-        
+        #nullable enable
+        public string? NomeCompleto { get; set; }     
         [Column("refresh_token")]
-        public string RefreshToken { get; set; }
-        [Column("refresh_token_expiry_time")]
-        public DateTime RefreshTokenExpiryTime { get; set; }
-        
+        public string? RefreshToken { get; set; }        
     }
 }

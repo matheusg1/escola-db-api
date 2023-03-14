@@ -4,8 +4,6 @@ using ApiProjetoEscola.Repository;
 using ApiProjetoEscola.Repository.IRepository;
 using ApiProjetoEscola.Services;
 using ApiProjetoEscola.Services.IServices;
-using ApiProjetoEscola.TokenServices;
-using ApiProjetoEscola.TokenServices.ITokenServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -54,16 +52,25 @@ namespace ApiProjetoEscola
             })
                 .AddJwtBearer(options =>
                 {
+                    options.RequireHttpsMetadata = false;
+                    options.SaveToken = true;
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(tokenConfigurations.Secret)),
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+
+                        /*
                         ValidateIssuer = true,
                         ValidateAudience = true,
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
-                        ClockSkew = TimeSpan.Zero,
+                        //ClockSkew = TimeSpan.Zero,
                         ValidIssuer = tokenConfigurations.Issuer,
                         ValidAudience = tokenConfigurations.Audience,
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenConfigurations.Secret))
+                        */
                     };
                 });
 
@@ -100,11 +107,11 @@ namespace ApiProjetoEscola
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo 
-                { 
-                    Title = "ApiProjetoEscola", 
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "ApiProjetoEscola",
                     Version = "v1",
-                    Description = "Sistema para cadasto escolar",
+                    Description = "Sistema para cadastro escolar",
 
                     Contact = new OpenApiContact
                     {
@@ -142,7 +149,7 @@ namespace ApiProjetoEscola
             services.AddScoped<ITurmaService, TurmaService>();
             services.AddScoped<IMateriaService, MateriaService>();
             services.AddScoped<IAlunoService, AlunoService>();
-            services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddTransient<ITokenService, TokenService>();
 
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
