@@ -20,6 +20,7 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using System.Text;
 
 namespace ApiProjetoEscola
@@ -39,12 +40,8 @@ namespace ApiProjetoEscola
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var tokenConfigurations = new TokenConfiguration();
-            new ConfigureFromConfigurationOptions<TokenConfiguration>(
-                Configuration.GetSection("TokenConfigurations"))
-                    .Configure(tokenConfigurations);
+            var tokenConfigurations = Configuration.GetSection("TokenConfigurations");
 
-            services.AddSingleton(tokenConfigurations);
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -57,7 +54,7 @@ namespace ApiProjetoEscola
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(tokenConfigurations.Secret)),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(tokenConfigurations["Secret"])),
                         ValidateIssuer = false,
                         ValidateAudience = false
 
@@ -74,12 +71,7 @@ namespace ApiProjetoEscola
                     };
                 });
 
-            services.AddAuthorization(auth =>
-            {
-                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
-                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
-                    .RequireAuthenticatedUser().Build());
-            });
+            services.AddAuthorization();
 
             services.AddCors(options => options.AddDefaultPolicy(builder =>
             {
@@ -175,6 +167,7 @@ namespace ApiProjetoEscola
             //Depois de UseHttpsRedirection e UseRouting e antes de UseEndpoints
             app.UseCors();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

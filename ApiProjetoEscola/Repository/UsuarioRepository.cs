@@ -120,7 +120,5 @@ namespace ApiProjetoEscola.Repository
             usuario.RefreshToken = null;
             _context.SaveChanges();
         }
-
-
     }
 }
