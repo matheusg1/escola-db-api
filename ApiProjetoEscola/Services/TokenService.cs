@@ -107,7 +107,6 @@ namespace ApiProjetoEscola.Services
         {
             _repository.DeleteRefreshToken(nomeUsuario, refreshToken);
         }
-
         public object ComputeHash(string input, SHA256CryptoServiceProvider algorithm)
         {
             Byte[] inputBytes = Encoding.ASCII.GetBytes(input);

@@ -3,7 +3,7 @@ using System;
 
 namespace ApiProjetoEscola.DTO
 {
-    public class CreateAlunoDto
+    public class CreateAlunoDTO
     {
         public string Nome { get; set; }
         public string Sobrenome { get; set; }

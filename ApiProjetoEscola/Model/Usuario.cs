@@ -17,6 +17,13 @@ namespace ApiProjetoEscola.Model
         #nullable enable
         public string? NomeCompleto { get; set; }     
         [Column("refresh_token")]
-        public string? RefreshToken { get; set; }        
+        public string? RefreshToken { get; set; }
+
+        public Usuario(string nomeUsuario, string senha, string nomeCompleto)
+        {
+            NomeUsuario = nomeUsuario;
+            Senha = senha;
+            NomeCompleto = nomeCompleto;
+        }
     }
 }

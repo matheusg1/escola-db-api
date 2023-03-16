@@ -1,5 +1,6 @@
 ﻿using ApiProjetoEscola.DTO;
 using ApiProjetoEscola.Model;
+using FluentResults;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,6 +10,6 @@ namespace ApiProjetoEscola.Services.IServices
     {
         Usuario Get(UsuarioDTO usuario);
         Usuario Create(UsuarioDTO usuario);
-        void Delete(int id);
+        Result Delete(DeleteUsuarioDTO usuario);
     }
 }

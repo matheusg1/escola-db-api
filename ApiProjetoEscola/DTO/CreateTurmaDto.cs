@@ -1,6 +1,6 @@
 ﻿namespace ApiProjetoEscola.DTO
 {
-    public class CreateTurmaDto
+    public class CreateTurmaDTO
     {
         public string Codigo { get; set; }
         public int EscolaId { get; set; }

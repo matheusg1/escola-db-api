@@ -1,6 +1,6 @@
 ﻿namespace ApiProjetoEscola.DTO
 {
-    public class CreateMateriaDto
+    public class CreateMateriaDTO
     {
         public string Nome { get; set; }
         public string Professor { get; set; }

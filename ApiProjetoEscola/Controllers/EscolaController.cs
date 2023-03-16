@@ -47,7 +47,7 @@ namespace ApiProjetoEscola.Controllers
         [ProducesResponseType((200), Type = typeof(Escola))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Create([FromBody] CreateEscolaDto escolaDto)
+        public IActionResult Create([FromBody] CreateEscolaDTO escolaDto)
         {
             if (escolaDto == null) return BadRequest();
 

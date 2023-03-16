@@ -45,7 +45,7 @@ namespace ApiProjetoEscola.Controllers
         [ProducesResponseType((200), Type = typeof(Materia))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Create([FromBody] CreateMateriaDto materiaDto)
+        public IActionResult Create([FromBody] CreateMateriaDTO materiaDto)
         {
             if (materiaDto == null) return BadRequest();
             var materia = new Materia(materiaDto.Nome, materiaDto.Professor, materiaDto.TurmaId);

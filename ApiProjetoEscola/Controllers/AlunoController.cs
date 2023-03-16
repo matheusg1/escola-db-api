@@ -61,7 +61,7 @@ namespace ApiProjetoEscola.Controllers
         [ProducesResponseType((200), Type = typeof(Aluno))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Create([FromBody] CreateAlunoDto alunoDto)
+        public IActionResult Create([FromBody] CreateAlunoDTO alunoDto)
         {
             if (alunoDto == null) return BadRequest();
             var aluno = new Aluno(

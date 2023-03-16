@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <PackageReference Include="Evolve" Version="3.1.0" />
+    <PackageReference Include="FluentResults" Version="3.15.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.17" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Xml" Version="2.2.0">
       <TreatAsUsed>true</TreatAsUsed>

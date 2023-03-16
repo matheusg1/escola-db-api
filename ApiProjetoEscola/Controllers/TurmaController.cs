@@ -59,7 +59,7 @@ namespace ApiProjetoEscola.Controllers
         [ProducesResponseType((200), Type = typeof(Turma))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        public IActionResult Create([FromBody] CreateTurmaDto turmaDto)
+        public IActionResult Create([FromBody] CreateTurmaDTO turmaDto)
         {
             if (turmaDto == null) return BadRequest();
             var turma = new Turma(turmaDto.Codigo, turmaDto.EscolaId);

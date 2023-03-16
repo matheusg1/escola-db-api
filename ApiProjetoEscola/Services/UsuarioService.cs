@@ -2,6 +2,7 @@
 using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Repository.IRepository;
 using ApiProjetoEscola.Services.IServices;
+using FluentResults;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -23,12 +24,12 @@ namespace ApiProjetoEscola.Services
 
         public Usuario Create(UsuarioDTO usuario)
         {
-            throw new System.NotImplementedException();
+            return _repository.Create(usuario);
         }
 
-        public void Delete(int id)
+        public Result Delete(DeleteUsuarioDTO usuario)
         {
-            throw new System.NotImplementedException();
+            return _repository.Delete(usuario);
         }
     }
 }

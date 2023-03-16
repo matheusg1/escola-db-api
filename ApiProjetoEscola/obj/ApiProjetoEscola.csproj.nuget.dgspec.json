@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[3.1.0, )"
             },
+            "FluentResults": {
+              "target": "Package",
+              "version": "[3.15.2, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.17, )"

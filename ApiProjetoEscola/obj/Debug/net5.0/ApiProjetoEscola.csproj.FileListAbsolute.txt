@@ -275,3 +275,5 @@ C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjet
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjetoEscola\obj\Debug\net5.0\ApiProjetoEscola.pdb
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjetoEscola\obj\Debug\net5.0\ApiProjetoEscola.genruntimeconfig.cache
 C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjetoEscola\obj\Debug\net5.0\ref\ApiProjetoEscola.dll
+C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\FluentResults.dll
+C:\Users\matheus.silva\Documents\ProjetosPessoais\CSharp\Escola-db-api\ApiProjetoEscola\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.dll
