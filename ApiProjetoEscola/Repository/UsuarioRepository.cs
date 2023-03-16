@@ -1,5 +1,4 @@
-﻿using ApiProjetoEscola.Configurations;
-using ApiProjetoEscola.DTO;
+﻿using ApiProjetoEscola.DTO;
 using ApiProjetoEscola.Model;
 using ApiProjetoEscola.Model.Context;
 using ApiProjetoEscola.Repository.IRepository;
@@ -93,9 +92,7 @@ namespace ApiProjetoEscola.Repository
             Byte[] inputBytes = Encoding.ASCII.GetBytes(input);
             Byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
             return BitConverter.ToString(hashedBytes);
-        }
-
-        
+        }        
         public bool RevokeToken(string nomeUsuario)
         {
             var usuario = _context.Usuarios.SingleOrDefault(u => u.NomeUsuario == nomeUsuario);
@@ -105,6 +102,12 @@ namespace ApiProjetoEscola.Repository
             _context.SaveChanges();
             
             return true;
+        }
+        public void SaveRefreshToken(string nomeUsuario, string refreshToken)
+        {
+            var usuario =_context.Usuarios.FirstOrDefault(u => u.NomeUsuario == nomeUsuario);
+            usuario.RefreshToken = refreshToken;
+            _context.SaveChanges();
         }
 
         public string GetRefreshToken(string nomeUsuario)

@@ -12,6 +12,7 @@ namespace ApiProjetoEscola.Repository.IRepository
         Usuario ValidateCredentials(string nomeUsuario);
         Usuario RefreshUsuarioInfo(Usuario usuario);
         bool RevokeToken(string nomeUsuario);
+        public void SaveRefreshToken(string nomeUsuario, string refreshToken);
         public string GetRefreshToken(string nomeUsuario);
         public void DeleteRefreshToken(string nomeUsuario, string refreshToken);
         

@@ -1,4 +1,3 @@
-using ApiProjetoEscola.Configurations;
 using ApiProjetoEscola.Model.Context;
 using ApiProjetoEscola.Repository;
 using ApiProjetoEscola.Repository.IRepository;
@@ -56,7 +55,8 @@ namespace ApiProjetoEscola
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(tokenConfigurations["Secret"])),
                         ValidateIssuer = false,
-                        ValidateAudience = false
+                        ValidateAudience = false,
+                        ClockSkew = TimeSpan.Zero
 
                         /*
                         ValidateIssuer = true,
