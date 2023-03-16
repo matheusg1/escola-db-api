@@ -14,7 +14,7 @@ Consumida por um web app com React e um console app com C#
    [EvolveDb](https://github.com/lecaillon/Evolve)
  - [x] Documentação com Swagger
  - [x]  Assincronismo em algumas funções
- - [ ] Token JWT sendo implementado
+ - [x] Token JWT
  
 ---
 ### Endpoints
