@@ -27,10 +27,10 @@ namespace ApiProjetoEscola.Controllers
             result.Senha = "";
             return Ok(result);
         }
-
-        [HttpPost]
+        /*
+        [HttpDelete]
         [Route("delete")]
-        public IActionResult Delete(DeleteUsuarioDTO usuario)
+        public IActionResult Delete([FromQuery] DeleteUsuarioDTO usuario)
         {
             Result result = _service.Delete(usuario);
 
@@ -39,10 +39,10 @@ namespace ApiProjetoEscola.Controllers
                 var mensagemErro = result.Errors[0].Message;
 
                 if (mensagemErro.Contains("Usuário")) return NotFound(mensagemErro);
-                if (mensagemErro.Contains("Senha")) return Unauthorized(mensagemErro);                
+                else if (mensagemErro.Contains("Senha")) return Unauthorized(mensagemErro);                
             }
 
             return Ok("Usuário deletado");
-        }
+        }*/
     }
 }
