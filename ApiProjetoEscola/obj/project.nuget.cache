@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gW66q0ElaIACCQE4B97bnGpNldLBLpW/Z9tSxyosp2dN/S1gNeG5hYFdFjhma78tHe+3RSVSJUeEK5rofE8tEw==",
+  "dgSpecHash": "eQqxVebUBEhISODXp0dbOTwu7GsQrGj2ieec+BVTMHlpTLRwu29z+yT+HVBqNO4s8apOXlHYLa/GkkL8H0GQ8Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\matheus.silva\\Documents\\ProjetosPessoais\\CSharp\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
+  "projectFilePath": "C:\\Users\\matheus.silva\\Documents\\ProjetosPessoais\\CSharp\\escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\matheus.silva\\.nuget\\packages\\evolve\\3.1.0\\evolve.3.1.0.nupkg.sha512",
     "C:\\Users\\matheus.silva\\.nuget\\packages\\fluentresults\\3.15.2\\fluentresults.3.15.2.nupkg.sha512",

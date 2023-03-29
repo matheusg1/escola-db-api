@@ -9,15 +9,17 @@ using ApiProjetoEscola.Services.IServices;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using ApiProjetoEscola.Repository.IRepository;
+using ApiProjetoEscola.Repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApiProjetoEscola.Services
 {
     public class TokenService : ITokenService
     {
         private IConfiguration _configuration;
-        private IUsuarioRepository _repository;
+        private TokenRepository _repository;
 
-        public TokenService(IConfiguration configuration, IUsuarioRepository repository)
+        public TokenService(IConfiguration configuration, TokenRepository repository)
         {
             _configuration = configuration;
             _repository = repository;
@@ -45,6 +47,7 @@ namespace ApiProjetoEscola.Services
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
+
         public string GenerateToken(IEnumerable<Claim> claims)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -61,14 +64,7 @@ namespace ApiProjetoEscola.Services
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
-        public string GenerateRefreshToken()
-        {
-            var randomNumber = new byte[32];
-            using var rng = RandomNumberGenerator.Create();
-            rng.GetBytes(randomNumber);
 
-            return Convert.ToBase64String(randomNumber);
-        }
         public ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
         {
             var tokenValidationParameters = new TokenValidationParameters
@@ -95,24 +91,20 @@ namespace ApiProjetoEscola.Services
             }
             return principal;
         }
+
         public string GetRefreshToken(string nomeUsuario)
         {
             return _repository.GetRefreshToken(nomeUsuario);
         }
+
         public void SaveRefreshToken(string nomeUsuario, string refreshToken)
         {
             _repository.SaveRefreshToken(nomeUsuario, refreshToken);
         }
+
         public void DeleteRefreshToken(string nomeUsuario, string refreshToken)
         {
             _repository.DeleteRefreshToken(nomeUsuario, refreshToken);
         }
-        public object ComputeHash(string input, SHA256CryptoServiceProvider algorithm)
-        {
-            Byte[] inputBytes = Encoding.ASCII.GetBytes(input);
-            Byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
-            return BitConverter.ToString(hashedBytes);
-        }
-
     }
 }

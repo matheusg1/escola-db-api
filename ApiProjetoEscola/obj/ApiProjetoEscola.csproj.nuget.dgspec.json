@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\matheus.silva\\Documents\\ProjetosPessoais\\CSharp\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj": {}
+    "C:\\Users\\matheus.silva\\Documents\\ProjetosPessoais\\CSharp\\escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj": {}
   },
   "projects": {
-    "C:\\Users\\matheus.silva\\Documents\\ProjetosPessoais\\CSharp\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj": {
+    "C:\\Users\\matheus.silva\\Documents\\ProjetosPessoais\\CSharp\\escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\matheus.silva\\Documents\\ProjetosPessoais\\CSharp\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
+        "projectUniqueName": "C:\\Users\\matheus.silva\\Documents\\ProjetosPessoais\\CSharp\\escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
         "projectName": "ApiProjetoEscola",
-        "projectPath": "C:\\Users\\matheus.silva\\Documents\\ProjetosPessoais\\CSharp\\Escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
+        "projectPath": "C:\\Users\\matheus.silva\\Documents\\ProjetosPessoais\\CSharp\\escola-db-api\\ApiProjetoEscola\\ApiProjetoEscola.csproj",
         "packagesPath": "C:\\Users\\matheus.silva\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\matheus.silva\\Documents\\ProjetosPessoais\\CSharp\\Escola-db-api\\ApiProjetoEscola\\obj\\",
+        "outputPath": "C:\\Users\\matheus.silva\\Documents\\ProjetosPessoais\\CSharp\\escola-db-api\\ApiProjetoEscola\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\matheus.silva\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -33,7 +33,7 @@ namespace ApiProjetoEscola.Controllers
             }
 
             var token = _tokenService.GenerateToken(usuario);
-            var refreshToken = _tokenService.GenerateRefreshToken();
+            var refreshToken = IService.GenerateRefreshToken();
             _tokenService.SaveRefreshToken(usuario.NomeUsuario, refreshToken);
 
             usuario.Senha = "";
@@ -41,23 +41,22 @@ namespace ApiProjetoEscola.Controllers
             return Ok(new { usuario, token });
         }
 
-
         [HttpPost]
         [Route("refresh")]
-        public IActionResult Refresh([FromBody] RefreshTokenDto refreshToken)
+        public IActionResult Refresh([FromBody] RefreshTokenDTO refreshToken)
         {
-            var principal = _tokenService.GetPrincipalFromExpiredToken(refreshToken.token);
+            var principal = _tokenService.GetPrincipalFromExpiredToken(refreshToken.Token);
             var username = principal.Identity.Name;
             var savedRefreshToken = _tokenService.GetRefreshToken(username);
 
-            if(savedRefreshToken != refreshToken.refreshToken)
+            if(savedRefreshToken != refreshToken.RefreshToken)
             
                 throw new SecurityTokenException("Invalid refresh token");
 
             var newJwtToken = _tokenService.GenerateToken(principal.Claims);
-            var newRefreshToken = _tokenService.GenerateRefreshToken();
+            var newRefreshToken = IService.GenerateRefreshToken();
 
-            _tokenService.DeleteRefreshToken(username, refreshToken.refreshToken);
+            _tokenService.DeleteRefreshToken(username, refreshToken.RefreshToken);
             _tokenService.SaveRefreshToken(username, newRefreshToken);
 
             return Ok(new

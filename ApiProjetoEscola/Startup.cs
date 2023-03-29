@@ -145,10 +145,12 @@ namespace ApiProjetoEscola
             services.AddTransient<ITokenService, TokenService>();
 
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<TokenRepository, TokenRepository>();
             services.AddScoped<IEscolaRepository, EscolaRepository>();
             services.AddScoped<ITurmaRepository, TurmaRepository>();
             services.AddScoped<IMateriaRepository, MateriaRepository>();
             services.AddScoped<IAlunoRepository, AlunoRepository>();
+            //services.AddScoped<IService, IService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
