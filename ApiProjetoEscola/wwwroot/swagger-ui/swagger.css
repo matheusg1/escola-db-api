@@ -1,0 +1,126 @@
+﻿:root {
+    --light: #DEE2E6;
+    --dark: #2D353C;
+    --green: #85CB33;
+    --red: #96031A;
+    --blue: #1C3041;
+    --yellow: #F19A3E;
+}
+
+.swagger-ui .topbar-wrapper img {
+    /*content: url();*/
+    max-width: none;
+}
+
+.swagger-ui .topbar {
+    background-color: #B8CDE0;
+}
+
+label.select-label span {
+    color: black;
+}
+
+.swagger-ui .scheme-container {
+}
+/*
+.swagger-ui button.btn.authorize {
+    background-color: white;
+}*/
+
+.swagger-ui .opblock.opblock-get {
+    border-radius: 0px;
+}
+
+    .swagger-ui .opblock.opblock-get .opblock-summary-method {
+        border-radius: 0px;
+        background-color: var(--blue);
+    }
+
+    .swagger-ui .opblock.opblock-get .tab-header .tab-item.active h4 span:after {
+        background: var(--blue);
+    }
+
+
+.swagger-ui .opblock.opblock-post {
+    border-radius: 0px;
+}
+
+    .swagger-ui .opblock.opblock-post .opblock-summary-method {
+        border-radius: 0px;
+        background-color: var(--green);
+    }
+
+    .swagger-ui .opblock.opblock-post .tab-header .tab-item.active h4 span:after {
+        background: var(--green);
+    }
+
+
+.swagger-ui .opblock.opblock-put {
+    border-radius: 0px;
+}
+
+    .swagger-ui .opblock.opblock-put .opblock-summary-method {
+        border-radius: 0px;
+        background-color: var(--yellow);
+    }
+
+    .swagger-ui .opblock.opblock-put .tab-header .tab-item.active h4 span:after {
+        background: var(--yellow);
+    }
+
+
+.swagger-ui .opblock.opblock-delete {
+    border-radius: 0px;
+}
+
+    .swagger-ui .opblock.opblock-delete .opblock-summary-method {
+        border-radius: 0px;
+        background-color: var(--red);
+    }
+
+    .swagger-ui .opblock.opblock-delete .tab-header .tab-item.active h4 span:after {
+        background: var(--red);
+    }
+
+
+.swagger-ui .opblock.opblock-patch {
+    border-radius: 0px;
+}
+
+    .swagger-ui .opblock.opblock-patch .opblock-summary-method {
+        border-radius: 0px;
+        background-color: var(--green);
+    }
+
+    .swagger-ui .opblock.opblock-patch .tab-header .tab-item.active h4 span:after {
+        background: var(--green);
+    }
+
+
+.swagger-ui .btn.authorize {
+    color: var(--green);
+    border-color: var(--green);
+}
+
+    .swagger-ui .btn.authorize svg {
+        fill: var(--green);
+    }
+
+.swagger-ui .btn.execute {
+    background-color: var(--blue);
+    border-color: var(--blue);
+}
+
+.swagger-ui .btn.cancel {
+    border-color: var(--red);
+    background-color: transparent;
+    font-family: sans-serif;
+    color: var(--red);
+}
+
+
+/*
+body {
+    background-color: var(--light);
+}
+*/
