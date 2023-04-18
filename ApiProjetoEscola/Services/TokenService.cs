@@ -2,24 +2,21 @@
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 using System;
 using ApiProjetoEscola.Services.IServices;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using ApiProjetoEscola.Repository.IRepository;
-using ApiProjetoEscola.Repository;
-using Microsoft.EntityFrameworkCore;
 
 namespace ApiProjetoEscola.Services
 {
     public class TokenService : ITokenService
     {
         private IConfiguration _configuration;
-        private TokenRepository _repository;
+        private ITokenRepository _repository;
 
-        public TokenService(IConfiguration configuration, TokenRepository repository)
+        public TokenService(IConfiguration configuration, ITokenRepository repository)
         {
             _configuration = configuration;
             _repository = repository;

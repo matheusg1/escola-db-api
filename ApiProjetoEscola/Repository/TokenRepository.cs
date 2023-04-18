@@ -1,10 +1,11 @@
 ﻿using ApiProjetoEscola.Model.Context;
+using ApiProjetoEscola.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace ApiProjetoEscola.Repository
 {
-    public class TokenRepository
+    public class TokenRepository : ITokenRepository
     {
         private readonly ProjetoDbContext _context;
 

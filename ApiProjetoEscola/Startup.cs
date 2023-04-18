@@ -144,8 +144,8 @@ namespace ApiProjetoEscola
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddTransient<ITokenService, TokenService>();
 
+            services.AddScoped<ITokenRepository, TokenRepository>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
-            services.AddScoped<TokenRepository, TokenRepository>();
             services.AddScoped<IEscolaRepository, EscolaRepository>();
             services.AddScoped<ITurmaRepository, TurmaRepository>();
             services.AddScoped<IMateriaRepository, MateriaRepository>();
